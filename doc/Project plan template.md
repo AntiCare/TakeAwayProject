@@ -30,7 +30,7 @@ What does the company want, is that the same as “What is the problem they want
 ## Project organisation
 See if you can switch scrum roles after each sprint. Make sure you talk with your lecturer if you think some additional guidance is needed.
 
-### Scrum organization
+### Scrum organisation
 Sprint 1
 Scrum roles
 
