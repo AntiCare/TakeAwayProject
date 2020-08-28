@@ -44,7 +44,7 @@ Project agreements
 * Roles, and specialisations
 * Documentation agreements
 * Organisation    
-* Something about office ethics
+* Working agreements (ncluding measures/escalations)
 
 Expected project result 
 (inc mile stones)
