@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "763903297428",
+    "firebase_url": "https://saxion-x-takeaway.firebaseio.com",
+    "project_id": "saxion-x-takeaway",
+    "storage_bucket": "saxion-x-takeaway.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763903297428:android:9ba091044de88359817181",
+        "android_client_info": {
+          "package_name": "nl.saxion.testnav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763903297428-rr2r8j2qctivo5dmjpqecf2l3mnqh8fk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrWwvl_rxuUNTb9b7NDGelFekYJdgygtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763903297428-rr2r8j2qctivo5dmjpqecf2l3mnqh8fk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
