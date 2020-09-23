@@ -9,17 +9,29 @@
         android:id="@+id/nav_home"
         android:name="nl.saxion.testnav.fragments.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="nl.saxion.testnav.fragments.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_profile"
+        android:name="nl.saxion.testnav.fragments.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/profile_fragment" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="nl.saxion.testnav.fragments.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_language"
+        android:name="nl.saxion.testnav.fragments.language.LanguageFragment"
+        android:label="@string/menu_language"
+        tools:layout="@layout/language_fragment" />
+
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="nl.saxion.testnav.fragments.favorite.FavoritesFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/favorites_fragment" />
+
+    <fragment
+        android:id="@+id/nav_faqs"
+        android:name="nl.saxion.testnav.fragments.FAQs.FaqsFragment"
+        android:label="@string/menu_faq"
+        tools:layout="@layout/faqs_fragment" />
 </navigation>

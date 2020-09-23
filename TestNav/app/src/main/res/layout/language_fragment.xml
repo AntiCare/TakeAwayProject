@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.language.LanguageFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="390dp"
+        android:layout_height="460dp"
+        android:layout_below="@id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/box_drawable" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_language"
+        android:textSize="20pt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:id="@+id/englishBtn"
+        android:scaleType="fitCenter"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#70ededed"
+        android:src="@drawable/ic_english"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp" />
+
+    <ImageButton
+        android:id="@+id/chineseBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_chinese"
+        android:layout_below="@+id/englishBtn"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#70ededed"
+        android:scaleType="fitCenter"
+
+        />
+
+    <ImageButton
+        android:id="@+id/dutchBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_dutch"
+        android:layout_below="@+id/chineseBtn"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#70ededed"
+        android:scaleType="fitCenter"
+/>
+
+    <ImageButton
+        android:id="@+id/spanishBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_spanish"
+        android:layout_below="@id/dutchBtn"
+        android:backgroundTint="#70ededed"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+/>
+
+    <ImageButton
+        android:id="@+id/ukrBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_ukrainian"
+        android:backgroundTint="#70ededed"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/spanishBtn"
+/>
+
+    <ImageButton
+        android:id="@+id/vnmBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_vietnamese"
+        android:backgroundTint="#70ededed"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/ukrBtn"
+/>
+
+    <TextView
+        android:id="@+id/englishTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="English"
+        android:layout_below="@id/textView2"
+        android:layout_toEndOf="@id/englishBtn"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="17dp"
+/>
+
+    <TextView
+        android:id="@+id/chineseTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chinese"
+        android:layout_toEndOf="@+id/chineseBtn"
+        android:layout_below="@id/englishTxtVw"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+/>
+
+    <TextView
+        android:id="@+id/dutchTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dutch"
+        android:layout_toEndOf="@+id/dutchBtn"
+        android:layout_below="@id/chineseTxtVw"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+/>
+
+    <TextView
+        android:id="@+id/spanishTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spanish"
+        android:layout_toEndOf="@+id/spanishBtn"
+        android:layout_below="@id/dutchTxtVw"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+/>
+
+    <TextView
+        android:id="@+id/ukrTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ukrainian"
+        android:layout_toEndOf="@+id/ukrBtn"
+        android:layout_below="@id/spanishTxtVw"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vietnamese"
+        android:layout_toEndOf="@+id/vnmBtn"
+        android:layout_below="@id/ukrTxtVw"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp" />
+
+
+</RelativeLayout>

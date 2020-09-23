@@ -18,4 +18,33 @@
     <string name="menu_language">Language</string>
     <string name="menu_favorites">Favorites</string>
     <string name="menu_faq">FAQs</string>
+    <string name="restaurants">restaurants</string>
+    <string name="favorites_restaurants">Favorites Restaurants</string>
+    <string name="restaurant_imgvw_description">profile pic/logo of the restaurant</string>
+    <string name="log_in">LOG IN</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="select_language">Select language</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="terms_and_conditions"><![CDATA[I have read and agreed to the Terms & Condition]]></string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="all_orders">all orders</string>
+    <string name="rating">Rating</string>
+    <string name="log_out">Log Out</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="deliveries">Deliveries</string>
+    <string name="home_address">Home address</string>
+    <string name="edit">Edit</string>
 </resources>

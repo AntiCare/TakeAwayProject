@@ -1,6 +1,9 @@
 package nl.saxion.testnav.models;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Account {
     //fields
@@ -11,20 +14,31 @@ public class Account {
     private String lastName;
     private String phoneNo;
     private ACCOUNT_STATUS status;
+    private List<Order> allOrders;
 
-    public Account(String email, String password, String first_name, String last_name, String phone_no) {
+    private HashMap<Integer, String> ratings;
+
+    public Account(String email, String password, String firstName, String lastName, String phoneNo) {
         id++;
         this.email = email;
         this.password = password;
-        this.firstName = first_name;
-        this.lastName = last_name;
-        this.phoneNo = phone_no;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNo = phoneNo;
+        this.ratings = new HashMap<>();
+    }
+
+    public Account(String firstName, String lastName, String phoneNo) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNo = phoneNo;
     }
 
     public ACCOUNT_STATUS getStatus() {
         return status;
     }
 
+    //#region getters setters
     public void setStatus(ACCOUNT_STATUS status) {
         this.status = status;
     }
@@ -57,12 +71,29 @@ public class Account {
         return lastName;
     }
 
-    public void sendMessage(Order o, String message){
+    public double getAvgRating() {
+        double avg = 0;
+        for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
+            int key = entry.getKey();
+            avg += key;
+        }
+        avg = avg / ratings.size();
+        return avg;
+    }
+    //#endregion
+
+    //methods
+    public void sendMessage(Order o, String message) {
         String m = "[" + this.firstName + " - " + Calendar.getInstance() + "] - " + message;
         o.addMessage(m);
     }
+
+    public void addRating(Integer rate, String firstName) {
+        this.ratings.put(rate, firstName);
+    }
+
 }
 
 enum ACCOUNT_STATUS {
-   ONLINE, OFFLINE
+    ONLINE, OFFLINE
 }

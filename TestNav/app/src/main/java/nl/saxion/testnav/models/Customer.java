@@ -1,19 +1,22 @@
 package nl.saxion.testnav.models;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Customer extends Account{
+public class Customer extends Account {
     //fields
     private String streetAddress, zipcode, city;
-    private Order currentOrder;
+    private List<Order> currentOrders;
+    private List<Restaurant> favorites;
 
     public Customer(String email, String password, String first_name, String last_name, String phone_no, String streetAddress, String zipcode, String city) {
         super(email, password, first_name, last_name, phone_no);
         this.streetAddress = streetAddress;
         this.zipcode = zipcode;
         this.city = city;
+        this.currentOrders = new ArrayList<>();
+        this.favorites = new ArrayList<>();
     }
-
 
     //#region getters setters
 
@@ -41,14 +44,24 @@ public class Customer extends Account{
         this.city = city;
     }
 
-    public Order getCurrentOrder() {
-        return currentOrder;
+    public List<Order> getCurrentOrders() {
+        return currentOrders;
     }
 
-    public void setCurrentOrder(Order currentOrder) {
-        this.currentOrder = currentOrder;
-    }
+    public List<Restaurant> getAllFavorites() { return favorites;}
+
     //#endregion
 
+    public void addOrder(Order order) {
+        this.currentOrders.add(order);
+    }
 
+    public boolean addToFavorites(Restaurant r) {
+        if (this.favorites.contains(r)) {
+            return false;
+        } else {
+            this.favorites.add(r);
+            return true;
+        }
+    }
 }

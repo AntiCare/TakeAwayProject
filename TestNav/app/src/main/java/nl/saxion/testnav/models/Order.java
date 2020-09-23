@@ -12,7 +12,6 @@ public class Order {
     private double total;
     private Date timeCreated, actualDeliver, chosenDeliver;
     private String conversation, items, fName, lName, phoneNo, streetAdd, zipcode, city;
-    private Customer customer;
     private Courier deliverer;
     private Restaurant restaurant;
     private ORDER_STATUS status;
@@ -43,11 +42,11 @@ public class Order {
         return chosenDeliver;
     }
 
-    public String getfName() {
+    public String getFirstName() {
         return fName;
     }
 
-    public String getlName() {
+    public String getLastName() {
         return lName;
     }
 

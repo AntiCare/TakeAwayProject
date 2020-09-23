@@ -13,15 +13,15 @@
             android:icon="@drawable/ic_baseline_favorite_border_24"
             android:title="@string/menu_favorites"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_baseline_person_outline_24"
             android:title="@string/menu_profile" />
         <item
-            android:id="@+id/faqs"
+            android:id="@+id/nav_faqs"
             android:icon="@drawable/ic_baseline_help_outline_24"
             android:title="@string/menu_faq"/>
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_language"
             android:icon="@drawable/ic_baseline_language_24"
             android:title="@string/menu_language" />
 

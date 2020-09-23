@@ -7,4 +7,5 @@
     <color name="colorPrimaryLightTint">#FFAC59</color>
     <color name="colorPrimaryLightTint1">#FFD9B2</color>
     <color name="colorPrimaryLightTint2">#FFEAD4</color>
+    <color name="buttonBlue">#0078FF</color>
 </resources>

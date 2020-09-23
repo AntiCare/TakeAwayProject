@@ -7,28 +7,28 @@ import java.util.Map;
 
 public class Restaurant {
     private static int id = 0;
-    private String name, streetAddress, zipcode, city, phoneNo, items;
-    private List<String> cuisines;
+    private String name, streetAddress, zipcode, city, items;
+    private String cuisines;
     private HashMap<Integer, String> ratings;
+    private String imageURL;
 
     //ctor
-    public Restaurant(String name, String streetAddress, String zipcode, String city, String phoneNo) {
+    public Restaurant(String name, String streetAddress, String zipcode, String city, String imageURL) {
         this.name = name;
         this.streetAddress = streetAddress;
         this.zipcode = zipcode;
         this.city = city;
-        this.phoneNo = phoneNo;
-        this.cuisines = new ArrayList<>();
         this.ratings = new HashMap<>();
+        this.imageURL = imageURL;
     }
 
     //#region getters setters
-    public String getName() {
-        return name;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getName() {
+        return name;
     }
 
     public String getStreetAddress() {
@@ -55,11 +55,7 @@ public class Restaurant {
         this.city = city;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
-    public double getAvgRating(){
+    public double getAvgRating() {
         double avg = 0;
         for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
             int key = entry.getKey();
@@ -69,7 +65,7 @@ public class Restaurant {
         return avg;
     }
 
-    public List<String> getCuisines() {
+    public String getCuisines() {
         return cuisines;
     }
 
@@ -77,25 +73,17 @@ public class Restaurant {
         return ratings;
     }
 
-    public void addCuisines(Object obj) {
-        if(obj instanceof String){
-            this.cuisines.add((String) obj);
-        } else if(obj instanceof List){
-            for (Object s : (List)obj) {
-                this.cuisines.add((String)s);
-            }
-        }
-    }
-
-
-
     //#endregion
 
     //methods
     @Override
     public String toString() {
-        return "name: " + this.name + "\taddress: " + this.streetAddress + " " + this.zipcode + " "
-                + this.city + "\t phone no: " + this.phoneNo + "\trating: " + this.getAvgRating();
+        return "name: " + this.name + "\tcuisines: " + this.cuisines + "\taddress: " + this.streetAddress + " " + this.zipcode + " "
+                + this.city + "\trating: " + this.getAvgRating();
+    }
+
+    public void addRatings(Integer rate, String firstName) {
+        this.ratings.put(rate, firstName);
     }
 }
 

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourierProfile">
+
+    <ImageView
+        android:id="@+id/courierDrawableImgVw"
+        android:layout_width="410dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="0dp"
+        android:src="@drawable/box_drawable" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="30dp">
+
+        <ImageView
+            android:id="@+id/courierProfileImgVw"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_baseline_person_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/customerNameTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/cardView"
+        android:text="Driver's name"
+        android:textSize="28sp" />
+
+    <RadioButton
+        android:id="@+id/customerOnlineRadioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customerNameTxtVw"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/cardView"
+        android:text="@string/online"
+        android:textSize="20sp" />
+
+    <RadioButton
+        android:id="@+id/courierOfflineRadioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customerOnlineRadioBtn"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/cardView"
+        android:text="@string/offline"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/deliveriesDrawableImgVw"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_below="@id/courierFAQBtn"
+        android:layout_margin="10dp"
+        android:elevation="0dp"
+        android:src="@drawable/box_drawable" />
+
+    <ImageView
+        android:id="@+id/ratingDrawableImgVw"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_below="@id/courierFAQBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:elevation="0dp"
+        android:src="@drawable/box_drawable" />
+
+    <Button
+        android:id="@+id/courierAllOrdersBtn"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courierDrawableImgVw"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/all_orders"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/buttonBlue"/>
+
+    <Button
+        android:id="@+id/courierFAQBtn"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courierAllOrdersBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/menu_faq"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/buttonBlue"/>
+
+    <TextView
+        android:id="@+id/courierDeliveryNoTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="138dp"
+        android:layout_below="@id/courierFAQBtn"
+        android:layout_marginStart="75dp"
+        android:text="0"
+        android:textSize="100sp"
+        />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courierDeliveryNoTxtVw"
+        android:layout_marginStart="45dp"
+        android:text="@string/deliveries"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/courierRatingTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="138dp"
+        android:layout_below="@+id/courierFAQBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:text="5.0"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courierRatingTxtVw"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="64dp"
+        android:text="@string/rating"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/courierPersonalInfoBtn"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingDrawableImgVw"
+        android:layout_centerHorizontal="true"
+        android:text="@string/personal_information"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/buttonBlue"/>
+
+    <Button
+        android:id="@+id/courierLogOutBtn"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courierPersonalInfoBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/log_out"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/buttonBlue"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp">
+
+        <ImageView
+            android:id="@+id/itemImgVw"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/itemDescriptionTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1-2 lines description"
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/cardView"
+        android:layout_below="@+id/itemNameTxtVw"/>
+
+    <TextView
+        android:id="@+id/itemNameTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Item 0"
+        android:textSize="25sp"
+        android:layout_toRightOf="@id/cardView" />
+
+    <TextView
+        android:id="@+id/itemPriceTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="€"
+        android:textSize="25sp"
+        android:layout_toRightOf="@id/cardView"
+        android:layout_below="@+id/itemDescriptionTxtVw"/>
+
+</RelativeLayout>
