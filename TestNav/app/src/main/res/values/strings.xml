@@ -47,4 +47,21 @@
     <string name="deliveries">Deliveries</string>
     <string name="home_address">Home address</string>
     <string name="edit">Edit</string>
+
+    <!--This string is used for restaurants list
+   -->
+    <string-array name="restaurantsName">
+        <item >Burger king </item>
+        <item >Pizza king</item>
+        <item >Sushi king</item>
+        <item >BBQ king</item>
+        <item >Kapsalon king</item>
+        <item >Doner king</item>
+        <item >Fries king</item>
+        <item >Pasta king</item>
+        <item >Fish king</item>
+        <item >Chicken king</item>
+        <item >Seafood king</item>
+        <item >Beef king</item>
+    </string-array>
 </resources>

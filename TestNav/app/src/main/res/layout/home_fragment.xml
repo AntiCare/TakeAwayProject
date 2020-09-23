@@ -58,6 +58,8 @@
         android:id="@+id/restaurantsListVw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/listVwHeader" />
+        android:layout_below="@id/listVwHeader"
+        android:entries="@array/restaurantsName"
+        />
 
 </RelativeLayout>

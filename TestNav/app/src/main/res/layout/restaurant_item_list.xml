@@ -32,9 +32,7 @@
             android:id="@+id/restaurantNameTxtVw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="restaurant's name"
-            android:textSize="28sp"
-            />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/restaurantRatingTxtVw"
@@ -42,6 +40,18 @@
             android:layout_height="wrap_content"
             android:text="0.0"
             android:textSize="25sp" />
-
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/restaurantItemCardVw"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+       >
+
+    </ListView>
+
+
 </RelativeLayout>

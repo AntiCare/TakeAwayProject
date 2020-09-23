@@ -23,8 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            <activity android:name=".RestaurantItemActivity" />
 
-        <meta-data
+            <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
