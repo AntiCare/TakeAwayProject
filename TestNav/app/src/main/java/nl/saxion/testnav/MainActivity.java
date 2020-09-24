@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         analytics = FirebaseAnalytics.getInstance(this);
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        //TODO: transition to basket
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

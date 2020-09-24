@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +21,7 @@ public class ProfileFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.profile_fragment, container, false);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
         //TODO: Create new views to inflate depends on logged in yet or not, which type of account
         profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

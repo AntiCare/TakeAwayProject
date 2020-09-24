@@ -47,4 +47,5 @@
     <string name="deliveries">Deliveries</string>
     <string name="home_address">Home address</string>
     <string name="edit">Edit</string>
+    <string name="basket">Basket</string>
 </resources>
