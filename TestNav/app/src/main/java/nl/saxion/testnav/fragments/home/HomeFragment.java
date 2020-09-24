@@ -17,15 +17,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import nl.saxion.testnav.R;
 import nl.saxion.testnav.RestaurantItemActivity;
+import nl.saxion.testnav.models.Admin;
+import nl.saxion.testnav.models.Restaurant;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private ListView listView;
     private SearchView mSearchView;
-private String[] restaurantName = { "Burger king", "Pizza king", "Sushi king", "BBQ king", "Kapsalon king","Doner king","Fries king","Pasta king","Fish king","Chicken king"
-        ,"Seafood king","Beef king"};
+    private ArrayList<String> restaurantNam;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -35,15 +39,48 @@ private String[] restaurantName = { "Burger king", "Pizza king", "Sushi king", "
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+
         mSearchView = (SearchView)getActivity().findViewById(R.id.searchView);
         listView = (ListView) getActivity().findViewById(R.id.restaurantsListVw);
-        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, restaurantName));
+        //create restaurant
+
+        Restaurant r1 = new Restaurant("Burger king","street1","1111","shit","11");
+        new Admin().addRestaurant(r1);
+        Restaurant r2 = new Restaurant("Pizza king","street2","1111","shit","11");
+        new Admin().addRestaurant(r2);
+        Restaurant r3 = new Restaurant("BBQ king","street3","1111","shit","11");
+        new Admin().addRestaurant(r3);
+        Restaurant r4 = new Restaurant("Kapsalon king","street4","1111","shit","11");
+        new Admin().addRestaurant(r4);
+        Restaurant r5 = new Restaurant("Doner king","street5","1111","shit","11");
+        new Admin().addRestaurant(r5);
+        Restaurant r6 = new Restaurant("Fries king","street6","1111","shit","11");
+        new Admin().addRestaurant(r6);
+        Restaurant r7 = new Restaurant("Pasta king","street7","1111","shit","11");
+        new Admin().addRestaurant(r7);
+        Restaurant r8 = new Restaurant("Fish king","street8","1111","shit","11");
+        new Admin().addRestaurant(r8);
+        Restaurant r9 = new Restaurant("Chicken king","street9","1111","shit","11");
+        new Admin().addRestaurant(r9);
+        Restaurant r10 = new Restaurant("Seafood king","street10","1111","shit","11");
+        new Admin().addRestaurant(r10);
+        Restaurant r11 = new Restaurant("Beef king","street11","1111","shit","11");
+        new Admin().addRestaurant(r11);
+        Restaurant r12 = new Restaurant("Sushi king","street12","1111","shit","11");
+        new Admin().addRestaurant(r12);
+        restaurantNam = new ArrayList<>();
+        for (int i = 0; i <Admin.getRestaurants().size(); i++) {
+             restaurantNam.add(Admin.getRestaurants().get(i).getName()) ;
+        }
+
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, restaurantNam));
         listView.setTextFilterEnabled(true);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView name = (TextView)view;
-//                Toast.makeText(getActivity(), name.getText()+"", Toast.LENGTH_LONG).show();
+//              Toast.makeText(getActivity(), name.getText()+"", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getActivity(), RestaurantItemActivity.class);
                 intent.putExtra("RN",name.getText());
                 startActivity(intent);

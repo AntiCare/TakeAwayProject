@@ -36,6 +36,10 @@ public class Admin {
         return true;
     }
 
+    public static List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
     public boolean addAccount(Account a) {
         if (a instanceof Customer) {
             for (Customer c : customers) {
