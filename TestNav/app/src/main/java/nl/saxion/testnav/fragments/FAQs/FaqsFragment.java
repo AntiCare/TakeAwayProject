@@ -26,7 +26,7 @@ public class FaqsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.faqs_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_faqs, container, false);
     }
 
     @Override
