@@ -39,12 +39,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //initial
+        initial();
+        //create restaurant
+        createRestaurant();
+        //Click events for each restaurant
+        clickRestaurantEvent();
+        //search Function
+        searchFunction();
+    }
 
-
+    public void initial() {
         mSearchView = (SearchView)getActivity().findViewById(R.id.searchView);
         listView = (ListView) getActivity().findViewById(R.id.restaurantsListVw);
-        //create restaurant
+    }
 
+    public void createRestaurant() {
         Restaurant r1 = new Restaurant("Burger king","street1","1111","shit","11");
         new Admin().addRestaurant(r1);
         Restaurant r2 = new Restaurant("Pizza king","street2","1111","shit","11");
@@ -69,9 +79,12 @@ public class HomeFragment extends Fragment {
         new Admin().addRestaurant(r11);
         Restaurant r12 = new Restaurant("Sushi king","street12","1111","shit","11");
         new Admin().addRestaurant(r12);
+    }
+
+    public void clickRestaurantEvent() {
         restaurantNam = new ArrayList<>();
         for (int i = 0; i <Admin.getRestaurants().size(); i++) {
-             restaurantNam.add(Admin.getRestaurants().get(i).getName()) ;
+            restaurantNam.add(Admin.getRestaurants().get(i).getName()) ;
         }
 
         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, restaurantNam));
@@ -80,13 +93,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView name = (TextView)view;
-//              Toast.makeText(getActivity(), name.getText()+"", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getActivity(), RestaurantItemActivity.class);
                 intent.putExtra("RN",name.getText());
                 startActivity(intent);
             }
         });
+    }
 
+    public void searchFunction() {
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             // This method is triggered when the search button is clicked
             @Override
@@ -105,8 +119,8 @@ public class HomeFragment extends Fragment {
                 return false;
             }
         });
-
     }
+
 
 
 }
