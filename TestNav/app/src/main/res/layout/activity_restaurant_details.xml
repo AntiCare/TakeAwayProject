@@ -81,14 +81,13 @@
         android:scaleType="fitCenter"
         android:layout_below="@id/item4Button"
         android:layout_toEndOf="@id/item2Button"/>
+
     <ImageButton
         android:id="@+id/item6Button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_pizza"
-        android:scaleType="fitCenter"
         android:layout_below="@id/item5Button"
         android:layout_toEndOf="@id/item3Button"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="35dp"/>
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_pizza" />
 </RelativeLayout>

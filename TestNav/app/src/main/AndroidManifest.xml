@@ -22,9 +22,7 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".RestaurantDetailsActivity"
-            android:label="@string/title_activity_restaurant_details" />
+
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up" />
@@ -38,9 +36,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <activity android:name=".RestaurantItemActivity" />
+        <activity android:name=".RestaurantDetailsActivity" />
 
-            <meta-data
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 

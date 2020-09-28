@@ -11,17 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import nl.saxion.testnav.R;
-import nl.saxion.testnav.RestaurantItemActivity;
+import nl.saxion.testnav.RestaurantDetailsActivity;
 import nl.saxion.testnav.models.Admin;
 import nl.saxion.testnav.models.Restaurant;
 
@@ -93,7 +91,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView name = (TextView)view;
-                Intent intent = new Intent(getActivity(), RestaurantItemActivity.class);
+                Intent intent = new Intent(getActivity(), RestaurantDetailsActivity.class);
                 intent.putExtra("RN",name.getText());
                 startActivity(intent);
             }
