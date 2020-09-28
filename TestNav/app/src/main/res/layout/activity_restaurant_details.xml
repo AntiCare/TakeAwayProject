@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestaurantDetails">
- 
+    tools:context=".RestaurantDetailsActivity">
+
     <ImageView
         android:id="@+id/rDetailsImgVw"
         android:layout_width="150dp"
@@ -31,7 +31,7 @@
         android:layout_toEndOf="@id/rDetailsImgVw"
         android:layout_marginEnd="12dp"
         android:id="@+id/rDetailsRatingTxtVw"/>
- 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -43,14 +43,13 @@
         app:tint="@color/colorPrimaryLightTint2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
- 
+
     <ImageButton
         android:id="@+id/item1Button"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_pizza"
-        android:layout_marginStart="35dp"
         android:layout_below="@id/rDetailsImgVw"/>
     <ImageButton
         android:id="@+id/item2Button"
@@ -58,18 +57,14 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_pizza"
         android:scaleType="fitCenter"
-        android:layout_below="@id/item1Button"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_below="@id/item1Button"/>
     <ImageButton
         android:id="@+id/item3Button"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_below="@id/item2Button"
         android:src="@drawable/ic_pizza"
-        android:scaleType="fitCenter"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"/>
+        android:scaleType="fitCenter"/>
     <ImageButton
         android:id="@+id/item4Button"
         android:layout_width="150dp"
@@ -77,8 +72,7 @@
         android:src="@drawable/ic_pizza"
         android:scaleType="fitCenter"
         android:layout_below="@id/rDetailsImgVw"
-        android:layout_toEndOf="@id/item1Button"
-        android:layout_marginStart="35dp"/>
+        android:layout_toEndOf="@id/item3Button"/>
     <ImageButton
         android:id="@+id/item5Button"
         android:layout_width="150dp"
@@ -86,9 +80,7 @@
         android:src="@drawable/ic_pizza"
         android:scaleType="fitCenter"
         android:layout_below="@id/item4Button"
-        android:layout_toEndOf="@id/item2Button"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_toEndOf="@id/item2Button"/>
     <ImageButton
         android:id="@+id/item6Button"
         android:layout_width="150dp"
@@ -99,5 +91,4 @@
         android:layout_toEndOf="@id/item3Button"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"/>
- 
 </RelativeLayout>

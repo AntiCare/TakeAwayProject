@@ -22,7 +22,9 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-
+        <activity
+            android:name=".RestaurantDetailsActivity"
+            android:label="@string/title_activity_restaurant_details" />
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up" />
