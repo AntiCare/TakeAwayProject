@@ -1,4 +1,4 @@
-package nl.saxion.testnav.fragments.home;
+package nl.saxion.testnav.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,20 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import nl.saxion.testnav.R;
 
-public class HomeFragment extends Fragment {
+public class LanguageFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_language, container, false);
 
 
-        return root;
+        return view;
     }
 }

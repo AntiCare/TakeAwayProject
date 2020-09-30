@@ -1,114 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/AppTheme.ToolbarDisplay"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/appBar"
         android:layout_marginTop="2dp"
         android:text="@string/sign_up"
         android:textSize="48sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fnameTxtLayout"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/fnameEditTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView3"
-        android:layout_margin="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fnameEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/first_name" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/lnameTxtLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fnameTxtLayout"
-        android:layout_margin="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lnameEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/last_name" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNoTxtLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lnameTxtLayout"
-        android:layout_margin="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phoneNoEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/phone_number" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailSignUpTxtLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/phoneNoTxtLayout"
-        android:layout_margin="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailSignUpEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordSignUpTxtLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/emailSignUpTxtLayout"
         android:layout_margin="15dp"
-        app:endIconMode="password_toggle">
+        android:hint="@string/first_name" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordSignUpEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/lnameEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fnameEditTxt"
+        android:layout_margin="15dp"
+        android:hint="@string/last_name" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/phoneNoProfileEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lnameEditTxt"
+        android:layout_margin="15dp"
+        android:hint="@string/phone_number" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailProfileEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNoProfileEditTxt"
+        android:layout_margin="15dp"
+        android:hint="@string/email" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/passwordSignUpEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailProfileEditTxt"
+        android:layout_margin="15dp"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
 
     <CheckBox
         android:id="@+id/tncCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordSignUpTxtLayout"
+        android:layout_below="@id/passwordSignUpEditTxt"
         android:layout_marginStart="15dp"
         android:text="@string/terms_and_conditions" />
 
@@ -122,5 +75,4 @@
         android:text="@string/sign_up"
         android:textSize="24sp"
         android:textStyle="bold" />
-
 </RelativeLayout>

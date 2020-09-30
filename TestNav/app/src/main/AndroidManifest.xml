@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BasketActivity"></activity>
+        <activity android:name=".OrderOverview" />
 
         <uses-library
             android:name="com.google.android.wearable"
@@ -43,13 +43,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+        <activity
+            android:name=".MessageActivity"
+            android:label="@string/title_activity_message" />
     </application>
 
 </manifest>

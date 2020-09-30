@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="nl.saxion.testnav.fragments.home.HomeFragment"
+        android:name="nl.saxion.testnav.fragments.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="nl.saxion.testnav.fragments.profile.ProfileFragment"
+        android:name="nl.saxion.testnav.fragments.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_language"
-        android:name="nl.saxion.testnav.fragments.language.LanguageFragment"
+        android:name="nl.saxion.testnav.fragments.LanguageFragment"
         android:label="@string/menu_language"
         tools:layout="@layout/fragment_language" />
 
     <fragment
         android:id="@+id/nav_favorite"
-        android:name="nl.saxion.testnav.fragments.favorite.FavoritesFragment"
+        android:name="nl.saxion.testnav.fragments.FavoritesFragment"
         android:label="@string/menu_favorites"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/nav_faqs"
-        android:name="nl.saxion.testnav.fragments.FAQs.FaqsFragment"
+        android:name="nl.saxion.testnav.fragments.FaqsFragment"
         android:label="@string/menu_faq"
         tools:layout="@layout/fragment_faqs" />
 </navigation>
