@@ -6,19 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 public class Restaurant {
-    private static int id = 0;
-    private String name, streetAddress, zipcode, city, items;
-    private String cuisines;
-    private HashMap<Integer, String> ratings;
+    private String name, streetAddress, zipcode, city;
     private String imageURL;
 
+    public Restaurant() {
+
+    }
     //ctor
     public Restaurant(String name, String streetAddress, String zipcode, String city, String imageURL) {
         this.name = name;
         this.streetAddress = streetAddress;
         this.zipcode = zipcode;
         this.city = city;
-        this.ratings = new HashMap<>();
         this.imageURL = imageURL;
     }
 
@@ -55,35 +54,45 @@ public class Restaurant {
         this.city = city;
     }
 
-    public double getAvgRating() {
-        double avg = 0;
-        for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
-            int key = entry.getKey();
-            avg += key;
-        }
-        avg = avg / ratings.size();
-        return avg;
-    }
 
-    public String getCuisines() {
-        return cuisines;
-    }
 
-    public HashMap<Integer, String> getRatings() {
-        return ratings;
-    }
+//    public double getAvgRating() {
+//        double avg = 0;
+//        for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
+//            int key = entry.getKey();
+//            avg += key;
+//        }
+//        avg = avg / ratings.size();
+//        return avg;
+//    }
+
+
+
+//    public Map<Integer, String> getRatings() {
+//        return ratings;
+//    }
 
     //#endregion
 
     //methods
     @Override
     public String toString() {
-        return "name: " + this.name + "\tcuisines: " + this.cuisines + "\taddress: " + this.streetAddress + " " + this.zipcode + " "
-                + this.city + "\trating: " + this.getAvgRating();
+        return "name: " + this.name + "\tcuisines: " + "\taddress: " + this.streetAddress + " " + this.zipcode + " "
+                + this.city ;
     }
 
-    public void addRatings(Integer rate, String firstName) {
-        this.ratings.put(rate, firstName);
+//    public void addRatings(Integer rate, String firstName) {
+//        this.ratings.put(rate, firstName);
+//    }
+
+    public Map<String,Object> toMap(){
+        Map<String,Object> result = new HashMap<>();
+        result.put("name",name);
+        result.put("streetAddress",streetAddress);
+        result.put("zipcode",zipcode);
+        result.put("city",city);
+        result.put("imageURL",imageURL);
+        return result;
     }
 }
 

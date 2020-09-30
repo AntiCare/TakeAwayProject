@@ -30,7 +30,7 @@ public class Admin {
         return customer.getCurrentOrders();
     }
 
-    public boolean addRestaurant(Restaurant r) {
+    public static boolean addRestaurant(Restaurant r) {
         if (restaurants.contains(r)) return false;
         else restaurants.add(r);
         return true;

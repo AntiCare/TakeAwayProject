@@ -28,11 +28,11 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         String restaurantName=intent.getStringExtra("RN");
         resName.setText(restaurantName);
 
-        for (int i = 0; i < Admin.getRestaurants().size(); i++) {
-            if (restaurantName.equals(Admin.getRestaurants().get(i).getName())) {
-                rating.setText(Admin.getRestaurants().get(i).getRatings().toString());
-            }
-        }
+//        for (int i = 0; i < Admin.getRestaurants().size(); i++) {
+//            if (restaurantName.equals(Admin.getRestaurants().get(i).getName())) {
+//                rating.setText(Admin.getRestaurants().get(i).getRatings().toString());
+//            }
+//        }
 
     }
 }

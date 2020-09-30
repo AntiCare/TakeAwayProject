@@ -4,6 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import nl.saxion.testnav.models.Restaurant;
+
 public class SignUpActivity extends AppCompatActivity {
 
 
@@ -14,5 +19,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
 
+
     }
+
 }

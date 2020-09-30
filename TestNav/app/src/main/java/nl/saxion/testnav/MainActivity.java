@@ -8,6 +8,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,6 +18,11 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.sql.Ref;
+
+import nl.saxion.testnav.models.Admin;
+import nl.saxion.testnav.models.Restaurant;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +62,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
