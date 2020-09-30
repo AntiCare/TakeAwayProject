@@ -83,6 +83,12 @@ public class HomeFragment extends Fragment {
                         TextView name = (TextView)view;
                         Intent intent = new Intent(getActivity(), RestaurantDetailsActivity.class);
                         intent.putExtra("RN",name.getText());
+                        for (int i = 0; i < Admin.getRestaurants().size(); i++) {
+//                            System.out.println(Admin.getRestaurants().get(i).getName());
+                             if (name.getText().equals(Admin.getRestaurants().get(i).getName())) {
+                                 intent.putExtra("URL",Admin.getRestaurants().get(i).getImageURL());
+                             }
+                        }
                         startActivity(intent);
                     }
                 });
