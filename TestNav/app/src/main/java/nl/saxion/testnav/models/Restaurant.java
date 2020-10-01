@@ -1,8 +1,6 @@
 package nl.saxion.testnav.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Restaurant {
@@ -54,24 +52,6 @@ public class Restaurant {
         this.city = city;
     }
 
-
-
-//    public double getAvgRating() {
-//        double avg = 0;
-//        for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
-//            int key = entry.getKey();
-//            avg += key;
-//        }
-//        avg = avg / ratings.size();
-//        return avg;
-//    }
-
-
-
-//    public Map<Integer, String> getRatings() {
-//        return ratings;
-//    }
-
     //#endregion
 
     //methods
@@ -80,10 +60,6 @@ public class Restaurant {
         return "name: " + this.name + "\tcuisines: " + "\taddress: " + this.streetAddress + " " + this.zipcode + " "
                 + this.city ;
     }
-
-//    public void addRatings(Integer rate, String firstName) {
-//        this.ratings.put(rate, firstName);
-//    }
 
     public Map<String,Object> toMap(){
         Map<String,Object> result = new HashMap<>();
