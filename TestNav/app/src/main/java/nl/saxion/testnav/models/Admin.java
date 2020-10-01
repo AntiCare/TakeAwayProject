@@ -6,19 +6,18 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Admin {
-    private static List<Customer> customers;
-    private static List<Courier> couriers;
-    private static List<Order> orders;
-    private static List<Restaurant> restaurants;
+    public static List<Account> accounts;
 
-    //TODO: GET RID OF SAMPLE INFO AND
+    public static List<Order> orders;
+    public static List<Restaurant> restaurants;
+
+    //TODO: GET RID OF SAMPLE INFO
     //sample info
     private double total = ThreadLocalRandom.current().nextDouble(10, 100);
     private String items = "";
 
     static {
-        customers = new ArrayList<>();
-        couriers = new ArrayList<>();
+        accounts = new ArrayList<>();
         orders = new ArrayList<>();
         restaurants = new ArrayList<>();
     }
@@ -41,26 +40,13 @@ public class Admin {
     }
 
     public boolean addAccount(Account a) {
-        if (a instanceof Customer) {
-            for (Customer c : customers) {
-                if (c.getEmail().equals(a.getEmail())) {
-                    return false;
-                } else {
-                    customers.add((Customer) a);
-                    return true;
-                }
-            }
-        } else if (a instanceof Courier) {
-            for (Courier d : couriers) {
-                if (d.getEmail().equals(a.getEmail())) {
-                    return false;
-                } else {
-                    couriers.add((Courier) a);
-                    return true;
-                }
+        for (Account acc : accounts) {
+            if (a.getEmail().equals(acc.getEmail())) {
+                return false;
             }
         }
-        return false;
+        accounts.add(a);
+        return true;
     }
 
     //TODO: clean up the item and total later
@@ -79,27 +65,46 @@ public class Admin {
     }
 
     public void addCustomerRating(Customer customer, Courier courier, Integer rate) {
-        getCustomer(customer).addRating(rate, courier.getFirstName());
+        getAccount(customer).addRating(rate, courier.getFirstName());
     }
 
     public void addCourierRating(Customer customer, Courier courier, Integer rate) {
-        getCourier(customer).addRating(rate, customer.getFirstName());
+        getAccount(customer).addRating(rate, customer.getFirstName());
     }
 
-    //private methods
-    private Customer getCustomer(Account c) {
-        for (Customer customer :
-                customers) {
-            if (c.getEmail().equals(customer.getEmail())) return customer;
+    private Account getAccount(Account c) {
+        for (Account account :
+                accounts) {
+            if (c.getEmail().equals(account.getEmail())) return c;
         }
         return null;
     }
 
-    private Courier getCourier(Account c) {
-        for (Courier courier :
-                couriers) {
-            if (c.getEmail().equals(courier.getEmail())) return courier;
+    public static Account getAccount(String email) {
+        for (Account a : accounts) {
+            if (a.getEmail().equals(email)) return a;
         }
         return null;
+    }
+
+    //TODO: remove after established firebase authentication
+    //methods for sample data
+    public static boolean checkCredential(String email, String password) {
+        for (Account a : accounts) {
+            if (a.getEmail().equals(email) && a.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //if Customer, return true; if Courier, return false;
+    public static boolean checkAccountType(String email) {
+        for (Account a : accounts) {
+            if (a.getEmail().equals(email) && a instanceof Customer) {
+                return true;
+            }
+        }
+        return false;
     }
 }

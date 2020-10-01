@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,61 +17,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:text="@string/log_in"
         android:textSize="48sp"
         android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:textAlignment="center" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailSignUpTxtLayout"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/emailEditTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logInHeader"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="30dp"
-        app:helperTextEnabled="true">
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@android:color/white"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordSignUpTxtLayout"
-        android:layout_width="382dp"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/passwordEditTxt"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailSignUpTxtLayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordEditTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_below="@+id/emailEditTxt"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@android:color/white"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/logInBtn"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:layout_below="@id/passwordSignUpTxtLayout"
+        android:layout_below="@id/passwordEditTxt"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/buttonBlue"
         android:text="@string/log_in"
         android:textSize="22sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/signUpQueueTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/logInBtn"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

@@ -25,18 +25,18 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="select_language">Select language</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="terms_and_conditions"><![CDATA[I have read and agreed to the Terms & Condition]]></string>
     <string name="sign_up">SIGN UP</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="phone_number">Phone number</string>
-    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_sign_up">Sign Up</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
+    <string name="sign_up_queue">Do not have an account yet? </string>
+    <string name="click_here_link">Click here</string>
     <string name="hello_world">Hello Square World!</string>
     <string name="online">Online</string>
     <string name="offline">Offline</string>
@@ -48,4 +48,7 @@
     <string name="home_address">Home address</string>
     <string name="edit">Edit</string>
     <string name="basket">Basket</string>
+    <string name="title_activity_restaurant_details">Restaurants</string>
+    <string name="title_activity_message">Message</string>
+    <string name="order_overview">Order Overview</string>
 </resources>

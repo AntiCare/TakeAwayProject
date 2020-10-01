@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class Order {
     //fields
@@ -30,7 +29,7 @@ public class Order {
         this.streetAdd = streetAddress;
         this.zipcode = zipcode;
         this.city = city;
-        this.status = ORDER_STATUS.ON_GOING;
+        this.status = ORDER_STATUS.SEARCHING;
     }
 
     //#region getters setters
@@ -72,6 +71,7 @@ public class Order {
 
     public void setDeliverer(Courier deliverer) {
         this.deliverer = deliverer;
+        setStatus(ORDER_STATUS.ON_GOING);
     }
 
     public Restaurant getRestaurant() {
@@ -101,6 +101,3 @@ public class Order {
     }
 }
 
-enum ORDER_STATUS{
-    ON_GOING, DELIVERED, CANCELED
-}

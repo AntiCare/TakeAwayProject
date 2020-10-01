@@ -15,6 +15,7 @@ public class Account {
     private String phoneNo;
     private ACCOUNT_STATUS status;
     private List<Order> allOrders;
+    private String imageURL;
 
     private HashMap<Integer, String> ratings;
 
@@ -26,6 +27,7 @@ public class Account {
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.ratings = new HashMap<>();
+        this.imageURL = "default";
     }
 
     public Account(String firstName, String lastName, String phoneNo) {
@@ -71,6 +73,14 @@ public class Account {
         return lastName;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     public double getAvgRating() {
         double avg = 0;
         for (Map.Entry<Integer, String> entry : ratings.entrySet()) {
@@ -92,8 +102,4 @@ public class Account {
         this.ratings.put(rate, firstName);
     }
 
-}
-
-enum ACCOUNT_STATUS {
-    ONLINE, OFFLINE
 }
