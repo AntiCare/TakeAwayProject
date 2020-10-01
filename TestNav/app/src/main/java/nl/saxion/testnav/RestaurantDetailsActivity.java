@@ -16,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -23,40 +26,26 @@ import java.net.URL;
 import nl.saxion.testnav.models.Admin;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
-    TextView resName;
-    TextView rating;
-    ImageButton b1;
-    ImageButton b2;
-    ImageButton b3;
-    ImageButton b4;
-    ImageButton b5;
-    ImageButton b6;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Order");
+    TextView resName,rating;
+    ImageButton b1,b2,b3,b4,b5,b6;
     ImageView pic;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
-
-        resName = findViewById(R.id.rDetailsNameTxtView);
-        rating = findViewById(R.id.rDetailsRatingTxtVw);
-        b1 = findViewById(R.id.item1Button);
-        b2 = findViewById(R.id.item2Button);
-        b3 = findViewById(R.id.item3Button);
-        b4 = findViewById(R.id.item4Button);
-        b5 = findViewById(R.id.item5Button);
-        b6 = findViewById(R.id.item6Button);
-        pic = (ImageView)this.findViewById(R.id.rDetailsImgVw) ;
-
-
+        //initialize
+        Initialize();
+        //get the data
         Intent intent=getIntent();
         String restaurantName=intent.getStringExtra("RN");
         final String imageURL = intent.getStringExtra("URL");
         resName.setText(restaurantName);
-        System.out.println(imageURL);
-
         new DownloadImageTask().execute(imageURL) ;
+        //ImageButton click event (store the order into firebase)
+        event();
 
     }
 
@@ -70,7 +59,6 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             pic.setImageDrawable(result);
         }
     }
-
 
     private Drawable loadImageFromNetwork(String imageUrl)
     {
@@ -87,6 +75,77 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             Log.d("test", "not null drawable");
         }
         return drawable ;
+    }
+
+    public void Initialize() {
+        resName = findViewById(R.id.rDetailsNameTxtView);
+        rating = findViewById(R.id.rDetailsRatingTxtVw);
+        b1 = findViewById(R.id.item1Button);
+        b2 = findViewById(R.id.item2Button);
+        b3 = findViewById(R.id.item3Button);
+        b4 = findViewById(R.id.item4Button);
+        b5 = findViewById(R.id.item5Button);
+        b6 = findViewById(R.id.item6Button);
+        pic = (ImageView)this.findViewById(R.id.rDetailsImgVw) ;
+    }
+
+    public void event() {
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            int number1 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item1").setValue(number1);
+                number1++;
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            int number2 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item2").setValue(number2);
+                number2++;
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            int number3 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item3").setValue(number3);
+                number3++;
+            }
+        });
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            int number4 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item4").setValue(number4);
+                number4++;
+            }
+        });
+
+        b5.setOnClickListener(new View.OnClickListener() {
+            int number5 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item5").setValue(number5);
+                number5++;
+            }
+        });
+
+        b6.setOnClickListener(new View.OnClickListener() {
+            int number6 = 1;
+            @Override
+            public void onClick(View v) {
+                myRef.child(resName.getText().toString()).child("item6").setValue(number6);
+                number6++;
+            }
+        });
+
+
     }
 
 }
