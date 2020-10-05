@@ -6,24 +6,20 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-
-import nl.saxion.testnav.models.Admin;
+import java.nio.FloatBuffer;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -31,7 +27,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
     TextView resName,rating;
     ImageButton b1,b2,b3,b4,b5,b6;
     ImageView pic;
-    
+    FloatingActionButton buyButton;
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +44,6 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         new DownloadImageTask().execute(imageURL) ;
         //ImageButton click event (store the order into firebase)
         event();
-
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Drawable>
@@ -86,16 +83,35 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         b4 = findViewById(R.id.item4Button);
         b5 = findViewById(R.id.item5Button);
         b6 = findViewById(R.id.item6Button);
-        pic = (ImageView)this.findViewById(R.id.rDetailsImgVw) ;
+        pic = (ImageView)this.findViewById(R.id.rDetailsImgVw);
+        buyButton = findViewById(R.id.floatingActionButton);
     }
 
     public void event() {
+        if(resName.getText().equals("BBQ king")) {
+            b1.setImageResource(R.drawable.bbq1);
+            b2.setImageResource(R.drawable.bbq2);
+            b3.setImageResource(R.drawable.bbq3);
+            b4.setImageResource(R.drawable.bbq4);
+            b5.setImageResource(R.drawable.bbq5);
+            b6.setImageResource(R.drawable.bbq6);
+        }
+
+        buyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RestaurantDetailsActivity.this, OrderOverview.class);
+                startActivity(intent);
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             int number1 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item1").setValue(number1);
+                myRef.child(resName.getText().toString()+"1").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"1").child("itemNum").setValue("item1");
+                myRef.child(resName.getText().toString()+"1").child("itemQuantity").setValue(String.valueOf(number1));
                 number1++;
             }
         });
@@ -104,7 +120,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             int number2 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item2").setValue(number2);
+                myRef.child(resName.getText().toString()+"2").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"2").child("itemNum").setValue("item2");
+                myRef.child(resName.getText().toString()+"2").child("itemQuantity").setValue(String.valueOf(number2));
                 number2++;
             }
         });
@@ -113,7 +131,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             int number3 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item3").setValue(number3);
+                myRef.child(resName.getText().toString()+"3").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"3").child("itemNum").setValue("item3");
+                myRef.child(resName.getText().toString()+"3").child("itemQuantity").setValue(String.valueOf(number3));
                 number3++;
             }
         });
@@ -122,7 +142,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             int number4 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item4").setValue(number4);
+                myRef.child(resName.getText().toString()+"4").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"4").child("itemNum").setValue("item4");
+                myRef.child(resName.getText().toString()+"4").child("itemQuantity").setValue(String.valueOf(number4));
                 number4++;
             }
         });
@@ -131,7 +153,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             int number5 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item5").setValue(number5);
+                myRef.child(resName.getText().toString()+"5").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"5").child("itemNum").setValue("item5");
+                myRef.child(resName.getText().toString()+"5").child("itemQuantity").setValue(String.valueOf(number5));
                 number5++;
             }
         });
@@ -140,12 +164,16 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             int number6 = 1;
             @Override
             public void onClick(View v) {
-                myRef.child(resName.getText().toString()).child("item6").setValue(number6);
+                myRef.child(resName.getText().toString()+"6").child("RestaurantName").setValue(resName.getText().toString());
+                myRef.child(resName.getText().toString()+"6").child("itemNum").setValue("item6");
+                myRef.child(resName.getText().toString()+"6").child("itemQuantity").setValue(String.valueOf(number6));
                 number6++;
             }
         });
 
 
     }
+
+
 
 }

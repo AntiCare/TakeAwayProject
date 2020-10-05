@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
                     Restaurant restaurant = keyNode.getValue(Restaurant.class);
                     Admin.addRestaurant(restaurant);
+                    System.out.println(restaurant);
                 }
                 restaurantNam = new ArrayList<>();
                 for (int i = 0; i <Admin.getRestaurants().size(); i++) {
