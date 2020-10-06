@@ -3,6 +3,7 @@ package nl.saxion.testnav;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ public class OrderOverview extends AppCompatActivity {
     DatabaseReference myRef = database.child("Order");
     private ImageButton chatBtn;
     private RecyclerView mRecyclerView;
+    private Button cancelOrder;
 
 
 
@@ -33,35 +35,35 @@ public class OrderOverview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_overview);
-        mRecyclerView = (RecyclerView) findViewById(R.id.itemListVw);
+        //init
+        initAttributes();
+        //read the order from firebase.
         new FirebaseDatabaseHelper().readOrders(new FirebaseDatabaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<OrderItem> orderItems, List<String> keys) {
                 new OrderOverViewConfig().setConfig(mRecyclerView,OrderOverview.this,orderItems,keys);
             }
-
             @Override
             public void DataIsInserted() {
 
             }
-
             @Override
             public void DataIsUpdated() {
 
             }
-
             @Override
             public void DataIsDeleted() {
 
             }
         });
-        initAttributes();
-
-        //TODO: CREATE ORDER
-
-        //TODO: ASSIGN DRIVER
-
-        //TODO: FETCH THE DRIVER'S INFORMATION AND CREATE A DRIVER OBJECT
+        //click the button, the order will be deleted.
+        cancelOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference nodeKeyRef = FirebaseDatabase.getInstance().getReference().child("Order");
+                nodeKeyRef.removeValue();
+            }
+        });
 
         //Open chat gui with courier
         chatBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +80,8 @@ public class OrderOverview extends AppCompatActivity {
     //INIT ALL ATTRIBUTES BELOW
     private void initAttributes() {
         chatBtn = findViewById(R.id.chatBtn);
-
-        //TODO: INIT THE REST OF THE BUTTONS ETC. HERE
+        mRecyclerView = (RecyclerView) findViewById(R.id.itemListVw);
+        cancelOrder = findViewById(R.id.cancelOrder);
     }
 
 
