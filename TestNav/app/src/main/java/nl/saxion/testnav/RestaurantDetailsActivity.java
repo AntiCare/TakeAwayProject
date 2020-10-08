@@ -19,12 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.FloatBuffer;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Order");
-    TextView resName,rating;
+    TextView resName, Raddress;
     ImageButton b1,b2,b3,b4,b5,b6;
     ImageView pic;
     FloatingActionButton buyButton;
@@ -40,7 +39,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         Intent intent=getIntent();
         String restaurantName=intent.getStringExtra("RN");
         final String imageURL = intent.getStringExtra("URL");
+        String address = intent.getStringExtra("ADDRESS");
         resName.setText(restaurantName);
+        Raddress.setText(address);
         new DownloadImageTask().execute(imageURL) ;
         //ImageButton click event (store the order into firebase)
         event();
@@ -76,7 +77,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
 
     public void Initialize() {
         resName = findViewById(R.id.rDetailsNameTxtView);
-        rating = findViewById(R.id.rDetailsRatingTxtVw);
+        Raddress = findViewById(R.id.rDetailsRatingTxtVw);
         b1 = findViewById(R.id.item1Button);
         b2 = findViewById(R.id.item2Button);
         b3 = findViewById(R.id.item3Button);
@@ -110,7 +111,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"1").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"1").child("itemNum").setValue("item1");
+                myRef.child(resName.getText().toString()+"1").child("itemNum").setValue("food1");
                 myRef.child(resName.getText().toString()+"1").child("itemQuantity").setValue(String.valueOf(number1));
                 number1++;
             }
@@ -121,7 +122,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"2").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"2").child("itemNum").setValue("item2");
+                myRef.child(resName.getText().toString()+"2").child("itemNum").setValue("food2");
                 myRef.child(resName.getText().toString()+"2").child("itemQuantity").setValue(String.valueOf(number2));
                 number2++;
             }
@@ -132,7 +133,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"3").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"3").child("itemNum").setValue("item3");
+                myRef.child(resName.getText().toString()+"3").child("itemNum").setValue("food3");
                 myRef.child(resName.getText().toString()+"3").child("itemQuantity").setValue(String.valueOf(number3));
                 number3++;
             }
@@ -143,7 +144,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"4").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"4").child("itemNum").setValue("item4");
+                myRef.child(resName.getText().toString()+"4").child("itemNum").setValue("food4");
                 myRef.child(resName.getText().toString()+"4").child("itemQuantity").setValue(String.valueOf(number4));
                 number4++;
             }
@@ -154,7 +155,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"5").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"5").child("itemNum").setValue("item5");
+                myRef.child(resName.getText().toString()+"5").child("itemNum").setValue("food5");
                 myRef.child(resName.getText().toString()+"5").child("itemQuantity").setValue(String.valueOf(number5));
                 number5++;
             }
@@ -165,7 +166,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myRef.child(resName.getText().toString()+"6").child("RestaurantName").setValue(resName.getText().toString());
-                myRef.child(resName.getText().toString()+"6").child("itemNum").setValue("item6");
+                myRef.child(resName.getText().toString()+"6").child("itemNum").setValue("food6");
                 myRef.child(resName.getText().toString()+"6").child("itemQuantity").setValue(String.valueOf(number6));
                 number6++;
             }

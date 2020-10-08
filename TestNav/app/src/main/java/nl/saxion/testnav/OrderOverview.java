@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +29,8 @@ public class OrderOverview extends AppCompatActivity {
     private ImageButton chatBtn;
     private RecyclerView mRecyclerView;
     private Button cancelOrder;
-
-
+    private TextView orderStatus;
+    boolean status = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,12 @@ public class OrderOverview extends AppCompatActivity {
 
             }
         });
+        //set order status.
+        if(!status) {
+            orderStatus.setText("open");
+        }else {
+            orderStatus.setText("closed");
+        }
         //click the button, the order will be deleted.
         cancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +89,7 @@ public class OrderOverview extends AppCompatActivity {
         chatBtn = findViewById(R.id.chatBtn);
         mRecyclerView = (RecyclerView) findViewById(R.id.itemListVw);
         cancelOrder = findViewById(R.id.cancelOrder);
+        orderStatus = findViewById(R.id.textView5);
     }
 
 

@@ -42,27 +42,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/itemListVw"
         android:layout_marginStart="270dp"
-        android:text="Total: "
+        android:text="Status： "
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:layout_below="@id/itemListVw"
         android:layout_toEndOf="@id/textView4"
-        android:text="€"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/totalPriceTxtVw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemListVw"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/textView5"
-        android:text="0.0"
-        android:textSize="18sp" />
 
     <ImageView
         android:layout_width="match_parent"
