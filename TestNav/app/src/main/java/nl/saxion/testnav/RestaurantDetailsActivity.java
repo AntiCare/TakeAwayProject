@@ -89,14 +89,14 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
     }
 
     public void event() {
-        if(resName.getText().equals("BBQ king")) {
-            b1.setImageResource(R.drawable.bbq1);
-            b2.setImageResource(R.drawable.bbq2);
-            b3.setImageResource(R.drawable.bbq3);
-            b4.setImageResource(R.drawable.bbq4);
-            b5.setImageResource(R.drawable.bbq5);
-            b6.setImageResource(R.drawable.bbq6);
-        }
+//        if(resName.getText().equals("BBQ king")) {
+//            b1.setImageResource(R.drawable.bbq1);
+//            b2.setImageResource(R.drawable.bbq2);
+//            b3.setImageResource(R.drawable.bbq3);
+//            b4.setImageResource(R.drawable.bbq4);
+//            b5.setImageResource(R.drawable.bbq5);
+//            b6.setImageResource(R.drawable.bbq6);
+//        }
 
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override

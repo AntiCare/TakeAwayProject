@@ -1,5 +1,6 @@
 package nl.saxion.testnav;
 
+import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nl.saxion.testnav.models.Account;
+//import nl.saxion.testnav.models.Account;
 
 public class MessageActivity extends AppCompatActivity {
     private CircleImageView profileImg;
@@ -56,22 +57,22 @@ public class MessageActivity extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference("Users").child(userid);
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Account user = snapshot.getValue(Account.class);
-                recipientName.setText(user.getFirstName());
-                if (user.getImageURL().equals("default")) {
-                    profileImg.setImageResource(R.mipmap.ic_launcher);
-                } else {
-                    Glide.with(MessageActivity.this).load(user.getImageURL()).into(profileImg);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Account user = snapshot.getValue(Account.class);
+//                recipientName.setText(user.getFirstName());
+//                if (user.getImageURL().equals("default")) {
+//                    profileImg.setImageResource(R.mipmap.ic_launcher);
+//                } else {
+//                    Glide.with(MessageActivity.this).load(user.getImageURL()).into(profileImg);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 }
