@@ -45,8 +45,6 @@
         android:layout_above="@+id/bottom"/>
 
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:padding="5dp"

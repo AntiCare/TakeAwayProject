@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FF8000</color>
     <color name="colorPrimaryDark">#FF8000</color>
     <color name="colorAccent">#0a3847</color>
+    <color name="massageColor1">#47E389</color>
     <color name="colorAccentCompliment">#d9f3ff</color>
     <color name="colorPrimaryLightTint">#FFAC59</color>
     <color name="colorPrimaryLightTint1">#FFD9B2</color>

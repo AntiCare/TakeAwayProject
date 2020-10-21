@@ -5,20 +5,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import nl.saxion.testnav.models.Chat;
 
 
 public class MessageActivity extends AppCompatActivity {
     ImageButton sendButton;
     EditText sendText;
+    DatabaseReference databaseReference;
+
+    MessageAdapter messageAdapter;
+    List<Chat> mChat;
+    RecyclerView recyclerView;
 
 
     @Override
@@ -46,6 +62,24 @@ public class MessageActivity extends AppCompatActivity {
                 sendText.setText("");
             }
         });
+
+        /**
+         * need finish login and sign up here.
+         * plan to read the user's infor from firebase.
+         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         */
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+
+
+
     }
 
 
@@ -64,7 +98,33 @@ public class MessageActivity extends AppCompatActivity {
 
 
     public void initialVariable() {
+        recyclerView.findViewById(R.id.recycler_view);
         sendButton= findViewById(R.id.btn_send);
         sendText= findViewById(R.id.text_send);
+    }
+
+    public void readMassage(final String myid, final String userid, final String imageUrl) {
+        mChat = new ArrayList<>();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Chats");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mChat.clear();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if(chat.getReceiver().equals(myid) && chat.getSender().equals(userid) ||
+                            chat.getReceiver().equals(userid) && chat.getSender().equals(myid)) {
+                        mChat.add(chat);
+                    }
+                    messageAdapter = new MessageAdapter(MessageActivity.this,mChat,imageUrl);
+                    recyclerView.setAdapter(messageAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
