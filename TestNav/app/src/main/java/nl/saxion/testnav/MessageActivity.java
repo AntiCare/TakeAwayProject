@@ -68,13 +68,16 @@ public class MessageActivity extends AppCompatActivity {
          * plan to read the user's infor from firebase.
          * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          */
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+//        databaseReference = FirebaseDatabase.getInstance().getReference();
+//
 
 
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
+
+//
+//        recyclerView.setHasFixedSize(true);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        linearLayoutManager.setStackFromEnd(true);
+//        recyclerView.setLayoutManager(linearLayoutManager);
 
 
 
@@ -98,7 +101,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
     public void initialVariable() {
-        recyclerView.findViewById(R.id.recycler_view);
+//        recyclerView.findViewById(R.id.recycler_view);
         sendButton= findViewById(R.id.btn_send);
         sendText= findViewById(R.id.text_send);
     }

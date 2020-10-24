@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import nl.saxion.testnav.models.ACCOUNT_STATUS;
 import nl.saxion.testnav.models.Admin;
 import nl.saxion.testnav.models.Customer;
 
@@ -69,11 +68,6 @@ public class CustomerProfile extends Fragment {
             password.setText(c.getPassword());
             name.setText(c.getFirstName() + " " + c.getLastName());
 
-            if (c.getStatus() == ACCOUNT_STATUS.ONLINE) online.setChecked(true);
-            else offline.setChecked(true);
-            if (c.getImageURL().equals("default"))
-                profilepic.setImageResource(R.mipmap.ic_launcher);
-            else Glide.with(getActivity()).load(c.getImageURL()).into(profilepic);
         }
 
     }

@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Admin {
     public static List<Account> accounts;
 
-    public static List<Order> orders;
+    public static List<OrderItem> orders;
     public static List<Restaurant> restaurants;
 
     //TODO: GET RID OF SAMPLE INFO
@@ -22,10 +22,10 @@ public class Admin {
         restaurants = new ArrayList<>();
     }
 
-    public List<Order> getCourierOrders(Courier courier){
+    public List<OrderItem> getCourierOrders(Courier courier){
         return courier.getAllOrders();
     }
-    public List<Order> getCustomerCurrentOrders(Customer customer){
+    public List<OrderItem> getCustomerCurrentOrders(Customer customer){
         return customer.getCurrentOrders();
     }
 
@@ -49,18 +49,9 @@ public class Admin {
         return true;
     }
 
-    //TODO: clean up the item and total later
-    public boolean createOrder(Customer c, Date chosenTime, Restaurant r) {
-        if (c.getCurrentOrders().size() < 5) {
-            Order o = new Order(chosenTime, c.getFirstName(), c.getLastName(), c.getPhoneNo(), c.getStreetAddress(), c.getZipcode(), c.getCity(), r, total, items);
-            c.addOrder(o);
-            return true;
-        }
-        return false;
-    }
 
-    public boolean createNoneAccountOrder(String first_name, String last_name, String phone_no, String streetAddress, String zipcode, String city, Date chosenTime, Restaurant r) {
-        orders.add(new Order(chosenTime, first_name, last_name, phone_no, streetAddress, zipcode, city, r, total, items));
+    public boolean createNoneAccountOrder(String RestaurantName, String itemNum, String itemQuantity) {
+        orders.add(new OrderItem(RestaurantName,itemNum,itemQuantity));
         return true;
     }
 

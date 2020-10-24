@@ -6,7 +6,7 @@ import java.util.List;
 public class Courier extends Account {
     //fields
     private String licensePlate, licenseNo;
-    private List<Order> orders;
+    private List<OrderItem> orders;
 
     //ctor
     public Courier(String email, String password, String first_name, String last_name, String phone_no) {
@@ -21,12 +21,9 @@ public class Courier extends Account {
         this.licenseNo = licenseNo;
     }
 
-    public List<Order> getAllOrders(){
+    public List<OrderItem> getAllOrders(){
         return this.orders;
     }
 
-    public void markCompletedDelivery(Order O) {
-        O.setStatus(ORDER_STATUS.DELIVERED);
-    }
 
 }

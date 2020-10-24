@@ -14,7 +14,7 @@ public class Account {
     private String lastName;
     private String phoneNo;
     private ACCOUNT_STATUS status;
-    private List<Order> allOrders;
+    private List<OrderItem> allOrders;
     private String imageURL;
 
     private HashMap<Integer, String> ratings;
@@ -41,9 +41,6 @@ public class Account {
     }
 
     //#region getters setters
-    public void setStatus(ACCOUNT_STATUS status) {
-        this.status = status;
-    }
 
     public String getPhoneNo() {
         return phoneNo;
@@ -92,11 +89,6 @@ public class Account {
     }
     //#endregion
 
-    //methods
-    public void sendMessage(Order o, String message) {
-        String m = "[" + this.firstName + " - " + Calendar.getInstance() + "] - " + message;
-        o.addMessage(m);
-    }
 
     public void addRating(Integer rate, String firstName) {
         this.ratings.put(rate, firstName);

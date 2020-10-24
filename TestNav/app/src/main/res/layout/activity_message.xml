@@ -12,29 +12,29 @@
         android:layout_height="wrap_content"
         >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:theme="@style/AppTheme.ToolbarDisplay"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/colorAccent"-->
+<!--            android:theme="@style/AppTheme.ToolbarDisplay"-->
+<!--            app:popupTheme="@style/AppTheme.PopupOverlay">-->
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/recipientProfileImgVw"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/recipientProfileImgVw"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp" />-->
 
-            <TextView
-                android:id="@+id/recipientNameTxtVw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Recipient"
-                android:textColor="#FFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </androidx.appcompat.widget.Toolbar>
+<!--            <TextView-->
+<!--                android:id="@+id/recipientNameTxtVw"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="25dp"-->
+<!--                android:text="Recipient"-->
+<!--                android:textColor="#FFF"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

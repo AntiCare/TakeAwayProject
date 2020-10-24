@@ -6,7 +6,7 @@ import java.util.List;
 public class Customer extends Account {
     //fields
     private String streetAddress, zipcode, city;
-    private List<Order> currentOrders;
+    private List<OrderItem> currentOrders;
     private List<Restaurant> favorites;
 
     public Customer(String email, String password, String first_name, String last_name, String phone_no, String streetAddress, String zipcode, String city) {
@@ -44,7 +44,7 @@ public class Customer extends Account {
         this.city = city;
     }
 
-    public List<Order> getCurrentOrders() {
+    public List<OrderItem> getCurrentOrders() {
         return currentOrders;
     }
 
@@ -52,7 +52,7 @@ public class Customer extends Account {
 
     //#endregion
 
-    public void addOrder(Order order) {
+    public void addOrder(OrderItem order) {
         this.currentOrders.add(order);
     }
 

@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment;
 
 public class CourierProfile extends Fragment {
 
+    public CourierProfile(){
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
