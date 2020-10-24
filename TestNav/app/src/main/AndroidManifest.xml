@@ -47,6 +47,8 @@
         <activity
             android:name=".MessageActivity"
             android:label="@string/title_activity_message" />
+        <activity android:name=".CourierProfile" />
+        <activity android:name=".CustomerProfile" />
     </application>
 
 </manifest>

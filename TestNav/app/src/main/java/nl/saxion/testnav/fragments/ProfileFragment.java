@@ -70,15 +70,14 @@ public class ProfileFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful() && input_email.contains("driver")) {
-                                        getParentFragmentManager()
-                                                .beginTransaction()
-                                                .add(R.id.login, new CourierProfile())
-                                                .commit();
+                                        Intent intent = new Intent(getActivity(),CourierProfile.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+//
                                     } else if(task.isSuccessful()) {
-                                        getParentFragmentManager()
-                                                .beginTransaction()
-                                                .add(R.id.login, new CustomerProfile())
-                                                .commit();
+                                        Intent intent = new Intent(getActivity(),CustomerProfile.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
 
                                     }else {
                                         Toast.makeText(getActivity(),"error!!",Toast.LENGTH_SHORT).show();

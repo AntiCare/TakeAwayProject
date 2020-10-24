@@ -5,20 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class CourierProfile extends Fragment {
-
-    public CourierProfile(){
-
-    }
-
+public class CourierProfile extends AppCompatActivity {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_courier_profile);
+        
 
-        View view = inflater.inflate(R.layout.fragment_courier_profile, container, false);
 
-        return view;
+
+
     }
+
+
+
 }
