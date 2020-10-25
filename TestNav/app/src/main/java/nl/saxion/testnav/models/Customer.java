@@ -1,67 +1,81 @@
 package nl.saxion.testnav.models;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Customer extends Account {
-    //fields
-    private String streetAddress, zipcode, city;
-    private List<OrderItem> currentOrders;
-    private List<Restaurant> favorites;
+public class Customer  {
+   private String id, firstName,lastName,phoneNum,email,password,address,imageURL;
 
-    public Customer(String email, String password, String first_name, String last_name, String phone_no, String streetAddress, String zipcode, String city) {
-        super(email, password, first_name, last_name, phone_no);
-        this.streetAddress = streetAddress;
-        this.zipcode = zipcode;
-        this.city = city;
-        this.currentOrders = new ArrayList<>();
-        this.favorites = new ArrayList<>();
+   public Customer() {
+
+   }
+
+    public Customer (String id, String firstName, String lastName,String phoneNum,String email,String password, String address, String imageURL) {
+       this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.imageURL = imageURL;
     }
 
-    //#region getters setters
-
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getCity() {
-        return city;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
-    public List<OrderItem> getCurrentOrders() {
-        return currentOrders;
+    public String getEmail() {
+        return email;
     }
 
-    public List<Restaurant> getAllFavorites() { return favorites;}
-
-    //#endregion
-
-    public void addOrder(OrderItem order) {
-        this.currentOrders.add(order);
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public boolean addToFavorites(Restaurant r) {
-        if (this.favorites.contains(r)) {
-            return false;
-        } else {
-            this.favorites.add(r);
-            return true;
-        }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

@@ -58,7 +58,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 final String input_email = emailEditTxt.getText().toString();
-                String input_password = passwordEditTxt.getText().toString();
+                final String input_password = passwordEditTxt.getText().toString();
 
                 if (TextUtils.isEmpty(input_email)) {
                     Toast.makeText(getActivity(),"Please enter email",Toast.LENGTH_SHORT).show();
@@ -72,15 +72,18 @@ public class ProfileFragment extends Fragment {
                                     if (task.isSuccessful() && input_email.contains("driver")) {
                                         Intent intent = new Intent(getActivity(),CourierProfile.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intent.putExtra("EMAIL",input_email);
+                                        intent.putExtra("PASSWORD",input_password);
                                         startActivity(intent);
-//
                                     } else if(task.isSuccessful()) {
                                         Intent intent = new Intent(getActivity(),CustomerProfile.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intent.putExtra("EMAIL",input_email);
+                                        intent.putExtra("PASSWORD",input_password);
                                         startActivity(intent);
 
                                     }else {
-                                        Toast.makeText(getActivity(),"error!!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(),"Wrong email or password, please try again!",Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

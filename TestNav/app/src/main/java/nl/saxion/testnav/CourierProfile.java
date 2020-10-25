@@ -14,7 +14,7 @@ public class CourierProfile extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_courier_profile);
-        
+
 
 
 

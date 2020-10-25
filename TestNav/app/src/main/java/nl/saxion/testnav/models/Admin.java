@@ -25,9 +25,9 @@ public class Admin {
     public List<OrderItem> getCourierOrders(Courier courier){
         return courier.getAllOrders();
     }
-    public List<OrderItem> getCustomerCurrentOrders(Customer customer){
-        return customer.getCurrentOrders();
-    }
+//    public List<OrderItem> getCustomerCurrentOrders(Customer customer){
+//        return customer.getCurrentOrders();
+//    }
 
     public static boolean addRestaurant(Restaurant r) {
         if (restaurants.contains(r)) return false;
@@ -55,13 +55,13 @@ public class Admin {
         return true;
     }
 
-    public void addCustomerRating(Customer customer, Courier courier, Integer rate) {
-        getAccount(customer).addRating(rate, courier.getFirstName());
-    }
-
-    public void addCourierRating(Customer customer, Courier courier, Integer rate) {
-        getAccount(customer).addRating(rate, customer.getFirstName());
-    }
+//    public void addCustomerRating(Customer customer, Courier courier, Integer rate) {
+//        getAccount(customer).addRating(rate, courier.getFirstName());
+//    }
+//
+//    public void addCourierRating(Customer customer, Courier courier, Integer rate) {
+//        getAccount(customer).addRating(rate, customer.getFirstName());
+//    }
 
     private Account getAccount(Account c) {
         for (Account account :
@@ -90,12 +90,12 @@ public class Admin {
     }
 
     //if Customer, return true; if Courier, return false;
-    public static boolean checkAccountType(String email) {
-        for (Account a : accounts) {
-            if (a.getEmail().equals(email) && a instanceof Customer) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public static boolean checkAccountType(String email) {
+//        for (Account a : accounts) {
+//            if (a.getEmail().equals(email) && a instanceof Customer) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }
