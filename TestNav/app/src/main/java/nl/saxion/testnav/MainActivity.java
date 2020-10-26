@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: change
-                Snackbar.make(view, "go to current order", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                analytics.logEvent("button_clicked", null);
+                Intent intent=new Intent(MainActivity.this,OrderHistory.class);
+                startActivity(intent);
+
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

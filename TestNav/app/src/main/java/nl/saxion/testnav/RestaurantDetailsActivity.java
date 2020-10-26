@@ -22,11 +22,13 @@ import java.net.URL;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Order");
+    DatabaseReference a =database.getReference("Order").push();
+    DatabaseReference myRef = a.child("OrderItem");
     TextView resName, Raddress;
     ImageButton b1,b2,b3,b4,b5,b6;
     ImageView pic;
     FloatingActionButton buyButton;
+
     int id;
 
     @Override
@@ -102,6 +104,9 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RestaurantDetailsActivity.this, OrderOverview.class);
+                String orderId = myRef.getParent().getKey();
+                intent.putExtra("orderID",orderId);
+                System.out.println(orderId);
                 startActivity(intent);
             }
         });

@@ -25,8 +25,9 @@ public class FirebaseDatabaseHelper {
         void DataIsDeleted();
     }
     public FirebaseDatabaseHelper() {
+
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceOrders = mDatabase.getReference("Order");
+        mReferenceOrders = mDatabase.getReference("Order").child(OrderOverview.orderID).child("OrderItem");
     }
 
     public void readOrders(final DataStatus dataStatus) {

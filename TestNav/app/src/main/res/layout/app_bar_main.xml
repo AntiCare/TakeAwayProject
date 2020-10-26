@@ -30,7 +30,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_outline_shopping_basket_24"
+        android:src="@drawable/ic_baseline_list_alt_24"
         app:tint="@color/colorPrimaryLightTint2" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

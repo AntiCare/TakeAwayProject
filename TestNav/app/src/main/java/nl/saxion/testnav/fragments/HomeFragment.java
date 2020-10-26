@@ -86,10 +86,6 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        /**
-                         * get customer data.
-                         */
-
                         TextView name = (TextView)view;
                         Intent intent = new Intent(getActivity(), RestaurantDetailsActivity.class);
                         intent.putExtra("RN",name.getText());

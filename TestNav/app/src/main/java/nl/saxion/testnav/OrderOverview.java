@@ -25,8 +25,10 @@ import nl.saxion.testnav.models.OrderItem;
 import nl.saxion.testnav.models.Restaurant;
 
 public class OrderOverview extends AppCompatActivity {
+    static String orderID;
+
+
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference myRef = database.child("Order");
     DatabaseReference myRefer = database.child("Couriers");
     Courier courier;
     List<Courier> drivers;
@@ -44,6 +46,10 @@ public class OrderOverview extends AppCompatActivity {
         setContentView(R.layout.activity_order_overview);
         //init
         initAttributes();
+        //get orderID
+        Intent intent = getIntent();
+         orderID = intent.getStringExtra("orderID");
+
         //read the order from firebase.
         new FirebaseDatabaseHelper().readOrders(new FirebaseDatabaseHelper.DataStatus() {
             @Override
@@ -73,7 +79,7 @@ public class OrderOverview extends AppCompatActivity {
         cancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference nodeKeyRef = FirebaseDatabase.getInstance().getReference().child("Order");
+                DatabaseReference nodeKeyRef = FirebaseDatabase.getInstance().getReference().child("Order").child(OrderOverview.orderID).child("OrderItem");
                 nodeKeyRef.removeValue();
             }
         });
