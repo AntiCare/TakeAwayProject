@@ -1,5 +1,7 @@
 package nl.saxion.testnav.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +30,7 @@ import java.util.List;
 import nl.saxion.testnav.R;
 import nl.saxion.testnav.RestaurantDetailsActivity;
 import nl.saxion.testnav.models.Admin;
+import nl.saxion.testnav.models.Customer;
 import nl.saxion.testnav.models.Restaurant;
 
 public class HomeFragment extends Fragment {
@@ -43,6 +46,9 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
+
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -79,6 +85,11 @@ public class HomeFragment extends Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        /**
+                         * get customer data.
+                         */
+
                         TextView name = (TextView)view;
                         Intent intent = new Intent(getActivity(), RestaurantDetailsActivity.class);
                         intent.putExtra("RN",name.getText());

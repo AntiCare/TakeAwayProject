@@ -1,5 +1,7 @@
 package nl.saxion.testnav;
 
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,11 +21,14 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import nl.saxion.testnav.fragments.HomeFragment;
 import nl.saxion.testnav.fragments.ProfileFragment;
+import nl.saxion.testnav.models.Customer;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     DatabaseReference reference;
+    static Customer customer;
 
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAnalytics analytics;
@@ -64,13 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
+        customer = (Customer) getIntent().getSerializableExtra("User");
     }
 
     @Override

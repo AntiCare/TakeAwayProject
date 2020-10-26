@@ -1,6 +1,7 @@
 package nl.saxion.testnav;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,12 +26,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import nl.saxion.testnav.models.Chat;
+import nl.saxion.testnav.models.Customer;
 
 
 public class MessageActivity extends AppCompatActivity {
     ImageButton sendButton;
     EditText sendText;
     DatabaseReference databaseReference;
+    Customer  customer;
 
     MessageAdapter messageAdapter;
     List<Chat> mChat;
@@ -44,6 +47,11 @@ public class MessageActivity extends AppCompatActivity {
 
 
         initialVariable();
+        customer = MainActivity.customer;
+        Intent intent = getIntent();
+        String courierID = intent.getStringExtra("CourierID");
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(courierID);
         event();
 
 
@@ -62,6 +70,7 @@ public class MessageActivity extends AppCompatActivity {
                 sendText.setText("");
             }
         });
+
 
         /**
          * need finish login and sign up here.

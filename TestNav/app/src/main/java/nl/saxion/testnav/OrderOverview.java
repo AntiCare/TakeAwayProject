@@ -20,17 +20,23 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.saxion.testnav.models.Courier;
 import nl.saxion.testnav.models.OrderItem;
 import nl.saxion.testnav.models.Restaurant;
 
 public class OrderOverview extends AppCompatActivity {
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference myRef = database.child("Order");
+    DatabaseReference myRefer = database.child("Couriers");
+    Courier courier;
+    List<Courier> drivers;
+
     private ImageButton chatBtn;
     private RecyclerView mRecyclerView;
     private Button cancelOrder;
-    private TextView orderStatus;
+    private TextView orderStatus, courierNam;
     boolean status = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,24 +78,58 @@ public class OrderOverview extends AppCompatActivity {
             }
         });
 
-        //Open chat gui with courier
-        chatBtn.setOnClickListener(new View.OnClickListener() {
+
+
+        //read courier from firebase.
+        myRefer.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
-                //intent.putExtra( , ) add courierID or something
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                drivers = new ArrayList<>();
+                for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                    Courier courier = keyNode.getValue(Courier.class);
+                    drivers.add(courier);
+                }
+                //Randomly arrange a courier
+                courier = drivers.get(randomCourier());
+                courierNam.setText(courier.getFirstName()+courier.getLastName());
+
+                //Open chat gui with courier
+                chatBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
+                        intent.putExtra("CourierID",courier.getId());
+                        startActivity(intent);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
+
+
+
 
     }
 
     //INIT ALL ATTRIBUTES BELOW
     private void initAttributes() {
+        courierNam = findViewById(R.id.courierNameRatingTxtVw);
         chatBtn = findViewById(R.id.chatBtn);
         mRecyclerView = (RecyclerView) findViewById(R.id.itemListVw);
         cancelOrder = findViewById(R.id.cancelOrder);
         orderStatus = findViewById(R.id.textView5);
+    }
+
+    public int randomCourier () {
+        int randomCourier = (int)(Math.random()*4);
+        return randomCourier;
     }
 
 

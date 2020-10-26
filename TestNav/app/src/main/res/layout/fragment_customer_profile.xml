@@ -103,7 +103,7 @@
         android:layout_below="@id/customerInfoImgVw"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/buttonBlue"
-        android:text="@string/edit"
+        android:text="@string/go_shopping"
         android:textSize="22sp"
         android:textStyle="bold" />
 

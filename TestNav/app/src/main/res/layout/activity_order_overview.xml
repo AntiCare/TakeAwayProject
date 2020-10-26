@@ -93,7 +93,7 @@
         android:layout_below="@id/textView6"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/courierProfilePic"
-        android:text="First name - Rating"
+        android:text="Courier name"
         android:textSize="20sp"
         android:layout_marginTop="20dp" />
 

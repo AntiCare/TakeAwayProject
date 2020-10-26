@@ -98,7 +98,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        //back to ProfileFragment.
 
                                     }
                                 }

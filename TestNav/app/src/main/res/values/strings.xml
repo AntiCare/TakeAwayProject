@@ -52,4 +52,6 @@
     <string name="title_activity_restaurant_details">Restaurants</string>
     <string name="title_activity_message">Message</string>
     <string name="order_overview">Order Overview</string>
+    <string name="go_shopping">Go Shopping</string>
+    <string name="order_in_progress">Order in progress</string>
 </resources>

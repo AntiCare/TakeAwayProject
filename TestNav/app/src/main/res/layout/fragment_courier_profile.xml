@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/courier"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -35,20 +36,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/customerNameTxtVw"
+        android:id="@+id/courierNameTxtVw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/cardView"
-        android:text="Driver's name"
         android:textSize="28sp" />
 
     <RadioButton
         android:id="@+id/customerOnlineRadioBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/customerNameTxtVw"
+        android:layout_below="@+id/courierNameTxtVw"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@id/cardView"
         android:text="@string/online"
@@ -68,7 +68,7 @@
         android:id="@+id/deliveriesDrawableImgVw"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        android:layout_below="@id/courierFAQBtn"
+        android:layout_below="@id/courierAllOrdersBtn"
         android:layout_margin="10dp"
         android:elevation="0dp"
         android:src="@drawable/box_drawable" />
@@ -77,7 +77,7 @@
         android:id="@+id/ratingDrawableImgVw"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        android:layout_below="@id/courierFAQBtn"
+        android:layout_below="@id/courierAllOrdersBtn"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
         android:elevation="0dp"
@@ -90,32 +90,20 @@
         android:layout_below="@+id/courierDrawableImgVw"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:text="@string/all_orders"
+        android:backgroundTint="@color/buttonBlue"
+        android:text="@string/order_in_progress"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/buttonBlue"/>
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/courierFAQBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/courierAllOrdersBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="@string/menu_faq"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/buttonBlue"/>
 
     <TextView
         android:id="@+id/courierDeliveryNoTxtVw"
         android:layout_width="wrap_content"
         android:layout_height="138dp"
-        android:layout_below="@id/courierFAQBtn"
+        android:layout_below="@id/courierAllOrdersBtn"
         android:layout_marginStart="75dp"
         android:text="0"
-        android:textSize="100sp"
-        />
+        android:textSize="100sp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -130,7 +118,7 @@
         android:id="@+id/courierRatingTxtVw"
         android:layout_width="wrap_content"
         android:layout_height="138dp"
-        android:layout_below="@+id/courierFAQBtn"
+        android:layout_below="@+id/courierAllOrdersBtn"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="32dp"
         android:text="5.0"
@@ -146,28 +134,28 @@
         android:text="@string/rating"
         android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/courierPersonalInfoBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ratingDrawableImgVw"
-        android:layout_centerHorizontal="true"
-        android:text="@string/personal_information"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/buttonBlue"/>
+    <!--    <Button-->
+    <!--        android:id="@+id/courierPersonalInfoBtn"-->
+    <!--        android:layout_width="350dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/ratingDrawableImgVw"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:text="@string/personal_information"-->
+    <!--        android:textSize="22sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:backgroundTint="@color/buttonBlue"/>-->
 
     <Button
         android:id="@+id/courierLogOutBtn"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/courierPersonalInfoBtn"
+        android:layout_below="@id/ratingDrawableImgVw"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
+        android:backgroundTint="@color/buttonBlue"
         android:text="@string/log_out"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/buttonBlue"/>
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

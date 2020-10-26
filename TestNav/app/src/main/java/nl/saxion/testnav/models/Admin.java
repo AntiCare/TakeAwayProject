@@ -22,9 +22,9 @@ public class Admin {
         restaurants = new ArrayList<>();
     }
 
-    public List<OrderItem> getCourierOrders(Courier courier){
-        return courier.getAllOrders();
-    }
+//    public List<OrderItem> getCourierOrders(Courier courier){
+//        return courier.getAllOrders();
+//    }
 //    public List<OrderItem> getCustomerCurrentOrders(Customer customer){
 //        return customer.getCurrentOrders();
 //    }

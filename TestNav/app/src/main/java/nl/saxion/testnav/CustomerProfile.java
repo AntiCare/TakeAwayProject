@@ -37,10 +37,10 @@ public class CustomerProfile extends AppCompatActivity {
     RadioButton offline, online;
     ImageView imageView;
 
+    int num;
+
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference myRef = database.child("Customers");
-
-
 
 
     @Override
@@ -62,10 +62,10 @@ public class CustomerProfile extends AppCompatActivity {
                 for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
                    Customer customer = keyNode.getValue(Customer.class);
                     customers.add(customer);
-                    System.out.println(customer);
                 }
                 for (int i = 0; i <customers.size() ; i++) {
                     if(email.equals(customers.get(i).getEmail()) && password.equals(customers.get(i).getPassword())) {
+                        num=i;
                         customerName.setText(customers.get(i).getFirstName()+" "+customers.get(i).getLastName());
                         address.setText("Address: "+ customers.get(i).getAddress());
                         phoneNum.setText("Phone Number: "+ customers.get(i).getPhoneNum());
@@ -77,6 +77,9 @@ public class CustomerProfile extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent intent = new Intent(CustomerProfile.this, MainActivity.class);
+                        intent.putExtra("User",customers.get(num));
+                        startActivity(intent);
 
                     }
                 });
@@ -89,19 +92,7 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
     }
-
-
-
-
-
     public void initAttributes() {
         customerName = findViewById(R.id.customerNameProfileTxtVw);
         imageView = findViewById(R.id.customerProfileImgVw);

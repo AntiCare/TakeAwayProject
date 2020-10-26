@@ -1,7 +1,9 @@
 package nl.saxion.testnav.models;
 
 
-public class Customer  {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
    private String id, firstName,lastName,phoneNum,email,password,address,imageURL;
 
    public Customer() {
@@ -17,6 +19,14 @@ public class Customer  {
         this.password = password;
         this.address = address;
         this.imageURL = imageURL;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -67,15 +77,25 @@ public class Customer  {
         this.address = address;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "firstName='" + firstName + '\'' +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
+                ", imageURL='" + imageURL + '\'' +
                 '}';
     }
 }
