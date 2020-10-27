@@ -50,6 +50,8 @@
         <activity android:name=".CourierProfile" />
         <activity android:name=".CustomerProfile" />
         <activity android:name=".OrderHistory" />
+        <activity android:name=".CourierOrderOverview" />
+        <activity android:name=".CourierOrderOverviewDetial" />
     </application>
 
 </manifest>

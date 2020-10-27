@@ -133,14 +133,12 @@ public class OrderOverview extends AppCompatActivity {
 
                     }
                 });
-
-
                 //Open chat gui with courier
                 chatBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
-                        intent.putExtra("CourierID",courier.getId());
+                        intent.putExtra("ReceiverID",courier.getId());
                         startActivity(intent);
                     }
                 });
@@ -152,10 +150,7 @@ public class OrderOverview extends AppCompatActivity {
 
             }
         });
-
-
     }
-
     //INIT ALL ATTRIBUTES BELOW
     private void initAttributes() {
         courierNam = findViewById(R.id.courierNameRatingTxtVw);

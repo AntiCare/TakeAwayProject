@@ -7,14 +7,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,11 +28,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import nl.saxion.testnav.models.Chat;
 import nl.saxion.testnav.models.Customer;
 
 
 public class MessageActivity extends AppCompatActivity {
+
+    CircleImageView profile;
+    TextView userName;
+
+    FirebaseUser firebaseUser;
+
     ImageButton sendButton;
     EditText sendText;
     DatabaseReference databaseReference;
@@ -46,12 +56,24 @@ public class MessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_message);
 
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
         initialVariable();
         customer = MainActivity.customer;
         Intent intent = getIntent();
-        String courierID = intent.getStringExtra("CourierID");
+        String ReceiverID = intent.getStringExtra("ReceiverID");
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(courierID);
+        System.out.println(ReceiverID);
         event();
 
 
@@ -110,6 +132,8 @@ public class MessageActivity extends AppCompatActivity {
 
 
     public void initialVariable() {
+        userName = findViewById(R.id.user_name);
+        profile = findViewById(R.id.profile_image);
 //        recyclerView.findViewById(R.id.recycler_view);
         sendButton= findViewById(R.id.btn_send);
         sendText= findViewById(R.id.text_send);

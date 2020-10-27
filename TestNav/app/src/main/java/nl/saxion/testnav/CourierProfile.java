@@ -84,6 +84,17 @@ public class CourierProfile extends AppCompatActivity {
             }
         });
 
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(CourierProfile.this,CourierOrderOverview.class);
+                intent1.putExtra("courierID",couriers.get(num).getId());
+                startActivity(intent1);
+
+            }
+        });
+
     }
 
     public void initAttributes() {
