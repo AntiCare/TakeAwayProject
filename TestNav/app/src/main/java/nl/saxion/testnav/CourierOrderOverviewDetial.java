@@ -107,7 +107,10 @@ public class CourierOrderOverviewDetial extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
                                             Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
+                                            intent.putExtra("check","2");
                                             intent.putExtra("ReceiverID",customerid);
+                                            intent.putExtra("OrderID",orderID);
+                                            intent.putExtra("ReceiverName",customerName.getText());
                                             startActivity(intent);
                                         }
                                     });

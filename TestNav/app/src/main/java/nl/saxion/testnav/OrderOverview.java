@@ -138,7 +138,9 @@ public class OrderOverview extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
-                        intent.putExtra("ReceiverID",courier.getId());
+                        intent.putExtra("check","1");
+                        intent.putExtra("OrderID1",orderID);
+                        intent.putExtra("ReceiverName1",courierNam.getText());
                         startActivity(intent);
                     }
                 });
