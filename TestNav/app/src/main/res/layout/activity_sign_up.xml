@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
         android:text="@string/sign_up"
-        android:textSize="48sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -40,7 +40,7 @@
         android:layout_margin="15dp"
         android:hint="@string/phone_number" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/emailProfileEditTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,12 +56,19 @@
         android:layout_margin="15dp"
         android:hint="@string/password"
         android:inputType="textPassword" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/addressEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordSignUpEditTxt"
+        android:layout_margin="15dp"
+        android:hint="@string/address" />
 
     <CheckBox
         android:id="@+id/tncCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordSignUpEditTxt"
+        android:layout_below="@id/addressEditTxt"
         android:layout_marginStart="15dp"
         android:text="@string/terms_and_conditions" />
 

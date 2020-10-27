@@ -24,6 +24,7 @@
     <string name="log_in">LOG IN</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="address">Address</string>
     <string name="select_language">Select language</string>
     <string name="terms_and_conditions"><![CDATA[I have read and agreed to the Terms & Condition]]></string>
     <string name="sign_up">SIGN UP</string>
@@ -51,4 +52,6 @@
     <string name="title_activity_restaurant_details">Restaurants</string>
     <string name="title_activity_message">Message</string>
     <string name="order_overview">Order Overview</string>
+    <string name="go_shopping">Go Shopping</string>
+    <string name="order_in_progress">Order in progress</string>
 </resources>

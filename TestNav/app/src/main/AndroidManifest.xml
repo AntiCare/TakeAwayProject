@@ -47,6 +47,11 @@
         <activity
             android:name=".MessageActivity"
             android:label="@string/title_activity_message" />
+        <activity android:name=".CourierProfile" />
+        <activity android:name=".CustomerProfile" />
+        <activity android:name=".OrderHistory" />
+        <activity android:name=".CourierOrderOverview" />
+        <activity android:name=".CourierOrderOverviewDetial" />
     </application>
 
 </manifest>

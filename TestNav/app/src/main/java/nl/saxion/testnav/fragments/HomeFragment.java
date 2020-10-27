@@ -1,5 +1,7 @@
 package nl.saxion.testnav.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +30,7 @@ import java.util.List;
 import nl.saxion.testnav.R;
 import nl.saxion.testnav.RestaurantDetailsActivity;
 import nl.saxion.testnav.models.Admin;
+import nl.saxion.testnav.models.Customer;
 import nl.saxion.testnav.models.Restaurant;
 
 public class HomeFragment extends Fragment {
@@ -43,6 +46,9 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
+
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -67,6 +73,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
                     Restaurant restaurant = keyNode.getValue(Restaurant.class);
                     Admin.addRestaurant(restaurant);
+                    System.out.println(restaurant);
                 }
                 restaurantNam = new ArrayList<>();
                 for (int i = 0; i <Admin.getRestaurants().size(); i++) {
@@ -78,13 +85,14 @@ public class HomeFragment extends Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                         TextView name = (TextView)view;
                         Intent intent = new Intent(getActivity(), RestaurantDetailsActivity.class);
                         intent.putExtra("RN",name.getText());
                         for (int i = 0; i < Admin.getRestaurants().size(); i++) {
-//                            System.out.println(Admin.getRestaurants().get(i).getName());
                             if (name.getText().equals(Admin.getRestaurants().get(i).getName())) {
                                 intent.putExtra("URL",Admin.getRestaurants().get(i).getImageURL());
+                                intent.putExtra("ADDRESS",Admin.getRestaurants().get(i).getStreetAddress());
                             }
                         }
                         startActivity(intent);

@@ -7,7 +7,8 @@
     android:gravity="bottom"
     android:orientation="horizontal"
     android:paddingBottom="2dp"
-    android:theme="@style/ThemeOverlay.MaterialComponents.Dark"><ImageView
+    android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -21,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center
-">
+        android:layout_gravity="center">
 
         <TextView
             android:layout_marginTop="15dp"

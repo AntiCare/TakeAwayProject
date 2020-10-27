@@ -27,7 +27,7 @@
         android:src="@drawable/box_drawable" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemListVw"
+        android:id="@+id/itemListVww"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/textView3"
@@ -36,22 +36,9 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemListVw"
-        android:layout_marginStart="270dp"
-        android:text="Status： "
-        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_below="@id/itemListVw"
-        android:layout_toEndOf="@id/textView4"
-        android:textSize="18sp" />
+
+
 
 
     <ImageView
@@ -87,13 +74,13 @@
         android:layout_marginBottom="5dp" />
 
     <TextView
-        android:id="@+id/courierNameRatingTxtVw"
+        android:id="@+id/CustomerNamee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView6"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/courierProfilePic"
-        android:text="Courier name"
+        android:text="Customer name"
         android:textSize="20sp"
         android:layout_marginTop="20dp" />
 
@@ -107,7 +94,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/arrivalTimeTxtVw"
+        android:id="@+id/arrivalTimeTxtVww"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/textView7"
@@ -117,7 +104,7 @@
         android:textSize="18sp" />
 
     <ImageButton
-        android:id="@+id/chatBtn"
+        android:id="@+id/chatBtnn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@id/textView6"
@@ -127,17 +114,5 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/roundedcorners" />
 
-    <Button
-        android:id="@+id/cancelOrder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/courierBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="CANCEL ORDER"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+
 </RelativeLayout>

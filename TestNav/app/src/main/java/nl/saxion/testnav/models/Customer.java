@@ -1,67 +1,101 @@
 package nl.saxion.testnav.models;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Customer extends Account {
-    //fields
-    private String streetAddress, zipcode, city;
-    private List<Order> currentOrders;
-    private List<Restaurant> favorites;
+import java.io.Serializable;
 
-    public Customer(String email, String password, String first_name, String last_name, String phone_no, String streetAddress, String zipcode, String city) {
-        super(email, password, first_name, last_name, phone_no);
-        this.streetAddress = streetAddress;
-        this.zipcode = zipcode;
-        this.city = city;
-        this.currentOrders = new ArrayList<>();
-        this.favorites = new ArrayList<>();
+public class Customer implements Serializable {
+   private String id, firstName,lastName,phoneNum,email,password,address,imageURL;
+
+   public Customer() {
+
+   }
+
+    public Customer (String id, String firstName, String lastName,String phoneNum,String email,String password, String address, String imageURL) {
+       this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.imageURL = imageURL;
     }
 
-    //#region getters setters
-
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getId() {
+        return id;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCity() {
-        return city;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public List<Order> getCurrentOrders() {
-        return currentOrders;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public List<Restaurant> getAllFavorites() { return favorites;}
-
-    //#endregion
-
-    public void addOrder(Order order) {
-        this.currentOrders.add(order);
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
-    public boolean addToFavorites(Restaurant r) {
-        if (this.favorites.contains(r)) {
-            return false;
-        } else {
-            this.favorites.add(r);
-            return true;
-        }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                '}';
     }
 }

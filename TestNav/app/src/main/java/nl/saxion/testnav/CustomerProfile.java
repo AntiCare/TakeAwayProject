@@ -1,80 +1,111 @@
 package nl.saxion.testnav;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.text.method.HideReturnsTransformationMethod;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import nl.saxion.testnav.models.ACCOUNT_STATUS;
+import java.util.ArrayList;
+import java.util.List;
+
 import nl.saxion.testnav.models.Admin;
 import nl.saxion.testnav.models.Customer;
+import nl.saxion.testnav.models.Restaurant;
 
-public class CustomerProfile extends Fragment {
 
-    private String e;
-    private MaterialEditText address, phoneNo, email, password;
-    private RadioButton online, offline;
-    private Button edit;
-    private Customer c;
-    private TextView name;
-    private ImageView profilepic;
+public class CustomerProfile extends AppCompatActivity {
+    List<Customer> customers;
 
-    public CustomerProfile() {
-    }
+    TextView customerName;
+    MaterialEditText address,phoneNum,emailAddress,passWord ;
+    Button button;
+    RadioButton offline, online;
+    ImageView imageView;
+
+    int num;
+
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference myRef = database.child("Customers");
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customer_profile, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_customer_profile);
 
-        initAttributes(view);
+        initAttributes();
+        Intent intent = getIntent();
+        final String email = intent.getStringExtra("EMAIL");
+        final String password = intent.getStringExtra("PASSWORD");
 
 
-        return view;
+        //read customer from realtimeDatabase.
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                customers = new ArrayList<>();
+                for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                   Customer customer = keyNode.getValue(Customer.class);
+                    customers.add(customer);
+                }
+                for (int i = 0; i <customers.size() ; i++) {
+                    if(email.equals(customers.get(i).getEmail()) && password.equals(customers.get(i).getPassword())) {
+                        num=i;
+                        customerName.setText(customers.get(i).getFirstName()+" "+customers.get(i).getLastName());
+                        address.setText("Address: "+ customers.get(i).getAddress());
+                        phoneNum.setText("Phone Number: "+ customers.get(i).getPhoneNum());
+                        emailAddress.setText("Email: "+ customers.get(i).getEmail());
+                        passWord.setText("Password: "+ customers.get(i).getPassword());
+                        passWord.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                }
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(CustomerProfile.this, MainActivity.class);
+                        intent.putExtra("User",customers.get(num));
+                        startActivity(intent);
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    public void initAttributes() {
+        customerName = findViewById(R.id.customerNameProfileTxtVw);
+        imageView = findViewById(R.id.customerProfileImgVw);
+        address = findViewById(R.id.customerAddressEditTxt);
+        phoneNum = findViewById(R.id.phoneNoProfileEditTxt);
+        emailAddress = findViewById(R.id.emailProfileEditTxt);
+        passWord =findViewById(R.id.passwordProfileEditTxt);
+        button = findViewById(R.id.editInfoBtn);
+        offline = findViewById(R.id.customerOfflineRadioBtn);
+        online = findViewById(R.id.customerOnlineRadioBtn);
     }
 
-    private void initAttributes(View view) {
-        Bundle bundle = this.getArguments();
 
-        if (bundle != null) {
-            e = bundle.getString("email");
-        }
-        edit = view.findViewById(R.id.editInfoBtn);
-        online = view.findViewById(R.id.customerOnlineRadioBtn);
-        offline = view.findViewById(R.id.customerOfflineRadioBtn);
-        address = view.findViewById(R.id.customerAddressEditTxt);
-        phoneNo = view.findViewById(R.id.phoneNoProfileEditTxt);
-        email = view.findViewById(R.id.emailProfileEditTxt);
-        password = view.findViewById(R.id.passwordProfileEditTxt);
-        edit = view.findViewById(R.id.editInfoBtn);
-        name = view.findViewById(R.id.customerNameProfileTxtVw);
-        profilepic = view.findViewById(R.id.customerProfileImgVw);
-        //TODO: TO BE CHANGED TO FETCH INFORMATION FROM THE FIREBASE
-        c = (Customer) Admin.getAccount(e);
 
-        if (c != null) {
-            if (!c.getStreetAddress().isEmpty())
-                address.setText(c.getStreetAddress() + ", " + c.getZipcode() + ", " + c.getCity());
-            if (!c.getPhoneNo().isEmpty()) phoneNo.setText(c.getPhoneNo());
-            email.setText(c.getEmail());
-            password.setText(c.getPassword());
-            name.setText(c.getFirstName() + " " + c.getLastName());
 
-            if (c.getStatus() == ACCOUNT_STATUS.ONLINE) online.setChecked(true);
-            else offline.setChecked(true);
-            if (c.getImageURL().equals("default"))
-                profilepic.setImageResource(R.mipmap.ic_launcher);
-            else Glide.with(getActivity()).load(c.getImageURL()).into(profilepic);
-        }
-
-    }
 }
