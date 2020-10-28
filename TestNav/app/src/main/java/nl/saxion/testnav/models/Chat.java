@@ -7,10 +7,10 @@ public class Chat {
     private String message;
 
 
-    public Chat (String sender, String receiver, String nessage) {
+    public Chat (String sender, String receiver, String message) {
         this.sender = sender;
         this.receiver = receiver;
-        this.message = nessage;
+        this.message = message;
     }
 
     public Chat() {
@@ -38,5 +38,14 @@ public class Chat {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "Chat{" +
+                "sender='" + sender + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

@@ -25,15 +25,14 @@ public static final int MSG_TYPE_RIGHT = 1;
 
    private Context mContext;
    private List<Chat> mChat;
-   private String imageUrl;
+
 
    FirebaseUser firebaseUser;
 
 
-   public MessageAdapter (Context mContext, List<Chat>mChat,String imageUrl) {
+   public MessageAdapter (Context mContext, List<Chat>mChat) {
     this.mChat = mChat;
     this.mContext= mContext;
-    this.imageUrl = imageUrl;
    }
 
     @NonNull
@@ -52,17 +51,12 @@ public static final int MSG_TYPE_RIGHT = 1;
     public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int position) {
 
        Chat chat = mChat.get(position);
+       System.out.println("KLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+       System.out.println(position);
+       System.out.println(chat.toString());
 
        holder.message.setText(chat.getMessage());
-       if (imageUrl.equals("default")) {
-           holder.message.setText(chat.getMessage());
 
-           if(imageUrl.equals("default")) {
-               holder.receiverImage.setImageResource(R.mipmap.ic_launcher);
-           }else {
-               Glide.with(mContext).load(imageUrl).into(holder.receiverImage);
-           }
-       }
     }
 
     @Override
@@ -86,7 +80,20 @@ public static final int MSG_TYPE_RIGHT = 1;
     @Override
     public int getItemViewType(int position) {
        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-       if (mChat.get(position).getSender().equals(firebaseUser.getUid())) {
+       String id;
+        if (firebaseUser.getUid().equals("EmEpFRHLoWOmOrJZbeX40fzhDuL2")) {
+            id="fvosadhfgabsfa";
+        }else if(firebaseUser.getUid().equals("LHHuI26WtOZQuG8TeP4EjHIOXKk1")) {
+            id="nsjkfDKJFBAG";
+        }else if(firebaseUser.getUid().equals("RZHrlYziUady8eCd3chXWRRUSdb2")) {
+            id="asjnfdsagkrhsd";
+        }else if(firebaseUser.getUid().equals("YZflkGMTqBeoEbhGOtWPzg28SVM2")) {
+            id="asjkdfnwakfab";
+        }else {
+            id=firebaseUser.getUid();
+        }
+
+       if (mChat.get(position).getSender().equals(id)) {
            return MSG_TYPE_RIGHT;
        }else {
            return MSG_Type_LEFT;
